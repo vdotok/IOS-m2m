@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import VdoTokSDK
+import iOSSDKStreaming
 import UIKit
 import AVFoundation
 

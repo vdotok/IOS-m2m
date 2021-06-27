@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import VdoTokSDK
+import iOSSDKStreaming
 
 protocol VideoDelegate: class {
     func didTapVideo(for baseSession: VTokBaseSession, state: VideoState)

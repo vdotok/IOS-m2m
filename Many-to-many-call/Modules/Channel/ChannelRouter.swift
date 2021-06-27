@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import VdoTokSDK
+import iOSSDKStreaming
 class ChannelRouter {
     private weak var navigationController: UINavigationController?
 

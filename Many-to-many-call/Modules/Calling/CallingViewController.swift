@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import VdoTokSDK
+import iOSSDKStreaming
 
 public class CallingViewController: UIViewController {
 

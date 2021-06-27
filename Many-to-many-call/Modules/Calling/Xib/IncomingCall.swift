@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import VdoTokSDK
+import iOSSDKStreaming
 
 protocol IncomingCallDelegate: class {
     func didReject(session: VTokBaseSession)
