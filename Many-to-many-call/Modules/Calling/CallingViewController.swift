@@ -132,6 +132,10 @@ extension CallingViewController: IncomingCallDelegate {
 }
 
 extension CallingViewController: VideoDelegate {
+    func changeResolution(session: VTokBaseSession) {
+        viewModel.changeResolution(session: session)
+    }
+    
     func didTapVideo(for baseSession: VTokBaseSession, state: VideoState) {
         viewModel.disableVideo(session: baseSession, state: state)
     }
@@ -153,6 +157,7 @@ extension CallingViewController: VideoDelegate {
         viewModel.speaker(session: baseSession, state: state)
         
     }
+    
     
     
 }

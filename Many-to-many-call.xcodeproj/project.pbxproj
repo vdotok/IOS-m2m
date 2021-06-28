@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D79DDBE2688E8670020566E /* iOSSDKStreaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D79DDBD2688E85A0020566E /* iOSSDKStreaming.framework */; };
-		5D79DDBF2688E8670020566E /* iOSSDKStreaming.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5D79DDBD2688E85A0020566E /* iOSSDKStreaming.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		187062C12689E3350056E09C /* iOSSDKStreaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187062BF2689E3250056E09C /* iOSSDKStreaming.framework */; };
+		187062C22689E3350056E09C /* iOSSDKStreaming.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 187062BF2689E3250056E09C /* iOSSDKStreaming.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		187062CB268A03AB0056E09C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187062C6268A03AB0056E09C /* DataManager.swift */; };
+		187062CC268A03AB0056E09C /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187062C7268A03AB0056E09C /* LocalFileManager.swift */; };
+		187062CD268A03AB0056E09C /* IPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187062C8268A03AB0056E09C /* IPManager.swift */; };
+		187062CE268A03AB0056E09C /* ResourcesStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187062C9268A03AB0056E09C /* ResourcesStatus.swift */; };
+		187062CF268A03AB0056E09C /* SystemDataUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187062CA268A03AB0056E09C /* SystemDataUsage.swift */; };
 		5D7CD5312677EC8C004799EA /* CreateGroupPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CD52F2677EC8C004799EA /* CreateGroupPopup.swift */; };
 		5D7CD5322677EC8C004799EA /* CreateGroupPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CD5302677EC8C004799EA /* CreateGroupPopup.xib */; };
 		5D7CD5362677FC7C004799EA /* YellowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CD5352677FC7C004799EA /* YellowButton.swift */; };
@@ -89,6 +94,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		187062BE2689E3250056E09C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 187062BA2689E3250056E09C /* iOSSDKStreaming.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D146FA225DE4823000852FB;
+			remoteInfo = iOSSDKStreaming;
+		};
 		5D79DDBC2688E85A0020566E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5D79DDB82688E85A0020566E /* iOSSDKStreaming.xcodeproj */;
@@ -105,7 +117,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5D79DDBF2688E8670020566E /* iOSSDKStreaming.framework in Embed Frameworks */,
+				187062C22689E3350056E09C /* iOSSDKStreaming.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +125,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		187062BA2689E3250056E09C /* iOSSDKStreaming.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iOSSDKStreaming.xcodeproj; path = "../../ios-sdk-streaming-many-to-many/iOSSDKStreaming.xcodeproj"; sourceTree = "<group>"; };
+		187062C6268A03AB0056E09C /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		187062C7268A03AB0056E09C /* LocalFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
+		187062C8268A03AB0056E09C /* IPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPManager.swift; sourceTree = "<group>"; };
+		187062C9268A03AB0056E09C /* ResourcesStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcesStatus.swift; sourceTree = "<group>"; };
+		187062CA268A03AB0056E09C /* SystemDataUsage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemDataUsage.swift; sourceTree = "<group>"; };
 		339FD71A8E7BFCF9C82301E5 /* Pods-Many-to-many-call.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.debug.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.debug.xcconfig"; sourceTree = "<group>"; };
 		41EE3D5569782C65BC647172 /* Pods_Many_to_many_call.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Many_to_many_call.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D79DDB82688E85A0020566E /* iOSSDKStreaming.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iOSSDKStreaming.xcodeproj; path = "../../../ios-sdk-streaming/iOSSDKStreaming.xcodeproj"; sourceTree = "<group>"; };
@@ -202,14 +220,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D79DDBE2688E8670020566E /* iOSSDKStreaming.framework in Frameworks */,
 				D2B969D74BD3EE143FB4DDD9 /* Pods_Many_to_many_call.framework in Frameworks */,
+				187062C12689E3350056E09C /* iOSSDKStreaming.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		187062BB2689E3250056E09C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				187062BF2689E3250056E09C /* iOSSDKStreaming.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		187062C5268A03AB0056E09C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				187062C6268A03AB0056E09C /* DataManager.swift */,
+				187062C7268A03AB0056E09C /* LocalFileManager.swift */,
+				187062C8268A03AB0056E09C /* IPManager.swift */,
+				187062C9268A03AB0056E09C /* ResourcesStatus.swift */,
+				187062CA268A03AB0056E09C /* SystemDataUsage.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		5D79DDB92688E85A0020566E /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +346,7 @@
 		5DA7BBE5267562A800A3E292 /* Many-to-many-call */ = {
 			isa = PBXGroup;
 			children = (
+				187062BA2689E3250056E09C /* iOSSDKStreaming.xcodeproj */,
 				5DE686E62688DDE50010A4D1 /* Streaming */,
 				5DA7BC262675FDF700A3E292 /* Modules */,
 				5DA7BC212675FDCA00A3E292 /* Model */,
@@ -377,6 +416,7 @@
 		5DA7BC182675FD5B00A3E292 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				187062C5268A03AB0056E09C /* Managers */,
 				5D7CD5342677FC71004799EA /* Buttons */,
 				5DA7BC192675FD6400A3E292 /* UserDefaults */,
 				5DA7BC55267754A000A3E292 /* Reachability.swift */,
@@ -540,6 +580,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 187062BB2689E3250056E09C /* Products */;
+					ProjectRef = 187062BA2689E3250056E09C /* iOSSDKStreaming.xcodeproj */;
+				},
+				{
 					ProductGroup = 5D79DDB92688E85A0020566E /* Products */;
 					ProjectRef = 5D79DDB82688E85A0020566E /* iOSSDKStreaming.xcodeproj */;
 				},
@@ -552,6 +596,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		187062BF2689E3250056E09C /* iOSSDKStreaming.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = iOSSDKStreaming.framework;
+			remoteRef = 187062BE2689E3250056E09C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5D79DDBD2688E85A0020566E /* iOSSDKStreaming.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -633,6 +684,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				187062CF268A03AB0056E09C /* SystemDataUsage.swift in Sources */,
 				5DA7BC5F2677553900A3E292 /* LoginRequest.swift in Sources */,
 				5DA7BBEB267562A800A3E292 /* ViewController.swift in Sources */,
 				5DA7BC5C2677552500A3E292 /* LoginService.swift in Sources */,
@@ -650,8 +702,10 @@
 				5DA2C2862677A64E00B6F36C /* CreateGroupRequest.swift in Sources */,
 				5D7CD5652678A950004799EA /* CallingViewModel.swift in Sources */,
 				5DA2C27D2677A5A100B6F36C /* AllUsersReponse.swift in Sources */,
+				187062CB268A03AB0056E09C /* DataManager.swift in Sources */,
 				5DA7BC3B2675FE6400A3E292 /* SignUpRouter.swift in Sources */,
 				5DA7BC3E2675FE6400A3E292 /* SignUpViewModel.swift in Sources */,
+				187062CC268A03AB0056E09C /* LocalFileManager.swift in Sources */,
 				5DA7BC3C2675FE6400A3E292 /* SignUpViewController.swift in Sources */,
 				5DA7BC132675FD3500A3E292 /* BaseDataStore.swift in Sources */,
 				5DA7BC772677595700A3E292 /* AllGroupRequest.swift in Sources */,
@@ -677,6 +731,7 @@
 				5D7CD5402677FEB8004799EA /* CustomButton.swift in Sources */,
 				5DA2C2892677A67700B6F36C /* AllUserRequest.swift in Sources */,
 				5DA2C2752677922E00B6F36C /* CreateGroupBuilder.swift in Sources */,
+				187062CE268A03AB0056E09C /* ResourcesStatus.swift in Sources */,
 				5DA7BC65267755E600A3E292 /* ValidateUserNameRequest.swift in Sources */,
 				5DA7BC62267755C700A3E292 /* ValidateUserNameService.swift in Sources */,
 				5DA7BC6B2677564F00A3E292 /* SignupService.swift in Sources */,
@@ -693,6 +748,7 @@
 				5D7CD57A2678B1E2004799EA /* VideoCell.swift in Sources */,
 				5DA7BC2E2675FE0900A3E292 /* LoginViewController.swift in Sources */,
 				5DA7BC492675FE8300A3E292 /* ChannelViewController.swift in Sources */,
+				187062CD268A03AB0056E09C /* IPManager.swift in Sources */,
 				5DA7BC232675FDDC00A3E292 /* UserResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

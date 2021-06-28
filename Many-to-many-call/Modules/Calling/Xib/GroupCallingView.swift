@@ -14,6 +14,7 @@ protocol VideoDelegate: class {
     func didTapEnd(for baseSession: VTokBaseSession)
     func didTapFlip(for baseSession: VTokBaseSession, type: CameraType)
     func didTapSpeaker(baseSession: VTokBaseSession, state: SpeakerState)
+    func changeResolution(session: VTokBaseSession)
 }
 
 
@@ -199,6 +200,9 @@ class GroupCallingView: UIView {
     
     func updateDataSource(with streams: [UserStream]) {
         userStreams = streams
+        if userStreams.count > 2 {
+            delegate?.changeResolution(session: session!)
+        }
         collectionView.reloadData()
     }
 
@@ -381,7 +385,9 @@ extension GroupCallingView {
         }
         timeString += intervalFormatter(interval: m) + ":" +
                         intervalFormatter(interval: s)
-        callTime.text = timeString
+        
+        let statistics = getDataUsage() + getResourcesUsage()
+        callTime.text = timeString + statistics
     }
     
     private func intervalFormatter(interval: Int) -> String {
@@ -393,5 +399,28 @@ extension GroupCallingView {
     
     private func secondsToHoursMinutesSeconds (seconds :Int) -> (hours: Int, minutes: Int, seconds: Int) {
       return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+}
+
+
+extension GroupCallingView {
+    
+    private func getDataUsage() -> String {
+        
+        let currentDataUsagePerCall = DataManager.shared.getDataUsagePerCall()
+        let currentUp = currentDataUsagePerCall.up
+        let currentDown = currentDataUsagePerCall.down
+        
+        let signals = DataManager.shared.getSignalStrength()
+        let cellularSingals = " c📶:\(signals.cellular)"
+        let wifiSingals = " w📶:\(signals.wifi)"
+        return " ⬆:\(currentUp/1024) ⬇:\(currentDown/1024)"//"\(cellularSingals)\(wifiSingals)"
+    }
+    
+    private func getResourcesUsage() -> String {
+        let usedMemory = ResourcesUsage.getMemoryUsedAndDeviceTotalInMegabytes().usage
+        let cpu = Int(ResourcesUsage.cpuUsage())
+        let batteryLevel = ResourcesUsage.getBatteryLevel()
+        return " p:\(cpu)% m:\(usedMemory)"//" b:\(batteryLevel)"
     }
 }

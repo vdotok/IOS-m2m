@@ -29,6 +29,7 @@ protocol CallingViewModel: CallingViewModelInput {
     func mute(session: VTokBaseSession, state: AudioState)
     func speaker(session: VTokBaseSession, state: SpeakerState)
     func disableVideo(session: VTokBaseSession, state: VideoState)
+    func changeResolution(session: VTokBaseSession)
 }
 
 class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
@@ -149,6 +150,10 @@ extension CallingViewModelImpl {
     
     func disableVideo(session: VTokBaseSession, state: VideoState) {
         vtokSdk?.disableVideo(session: session, State: state)
+    }
+    
+    func changeResolution(session: VTokBaseSession) {
+        vtokSdk?.changeResolution(session: session)
     }
     
 }
