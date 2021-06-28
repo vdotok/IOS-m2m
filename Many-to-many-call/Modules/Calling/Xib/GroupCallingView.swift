@@ -45,7 +45,6 @@ class GroupCallingView: UIView {
     private weak var timer: Timer?
 
     var userStreams: [UserStream]  = []
-    var columns = 4
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -270,12 +269,19 @@ extension GroupCallingView {
         let height = collectionView.bounds.size.height
         let rowHeight: CGFloat
         
-        // Height of the cell will be equal to the Nth number of the total height of the collection view. Nth number can be get by dividing the height of collectionView with the total number of rows in the collectionView
-        if userStreams.count == 2 {
-            rowHeight = (height - extraNumber) / 2
+//        // Height of the cell will be equal to the Nth number of the total height of the collection view. Nth number can be get by dividing the height of collectionView with the total number of rows in the collectionView
+//        if userStreams.count == 2 {
+//            rowHeight = (height - extraNumber) / 2
+//        } else {
+//            let requiredRows = (self.userStreams.count / 2) + (userStreams.count % 2)
+//            rowHeight = (height/CGFloat(requiredRows)) - extraNumber
+//        }
+        
+        // Height of cell will be equal to the height of collectionView in case of single cell. Height of cell will be equal to the half of the height of collectionView in case of more than one cell
+        if userStreams.count == 1 {
+            rowHeight = height - extraNumber
         } else {
-            let requiredRows = (self.userStreams.count / 2) + (userStreams.count % 2)
-            rowHeight = (height/CGFloat(requiredRows)) - extraNumber
+            rowHeight = (height - extraNumber) / 2
         }
             
         return rowHeight
