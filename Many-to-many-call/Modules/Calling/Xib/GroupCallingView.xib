@@ -81,8 +81,8 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EP6-uA-Ulc">
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                            <state key="normal" image="video"/>
-                            <state key="selected" image="StopVideo"/>
+                            <state key="normal" image="StopVideo"/>
+                            <state key="selected" image="video"/>
                             <connections>
                                 <action selector="didTapVideo:" destination="iN0-l3-epB" eventType="touchUpInside" id="zf1-0P-1hv"/>
                             </connections>
@@ -96,8 +96,8 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbT-1O-LIu">
                             <rect key="frame" x="160" y="0.0" width="60" height="60"/>
-                            <state key="normal" image="unMute"/>
-                            <state key="selected" image="mute"/>
+                            <state key="normal" image="mute"/>
+                            <state key="selected" image="unMute"/>
                             <connections>
                                 <action selector="didTapMute:" destination="iN0-l3-epB" eventType="touchUpInside" id="SGz-03-qYF"/>
                             </connections>
@@ -116,8 +116,8 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPo-fW-5AB">
                             <rect key="frame" x="0.0" y="62" width="32" height="32"/>
-                            <state key="normal" image="Volumn On"/>
-                            <state key="selected" image="Volume Off"/>
+                            <state key="normal" image="Volume Off"/>
+                            <state key="selected" image="Volumn On"/>
                             <connections>
                                 <action selector="didTapSpeaker:" destination="iN0-l3-epB" eventType="touchUpInside" id="hDV-Ds-M6G"/>
                             </connections>

@@ -82,6 +82,8 @@ public class SignUpViewController: UIViewController {
 extension SignUpViewController {
     func configureAppearance() {
         email.delegate = self
+        password.delegate = self
+        userName.delegate = self
         containerView.layer.cornerRadius = 20
         loginButton.setTitleColor(UIColor(named: "AppIndigoColor"), for: .normal)
     }
@@ -91,6 +93,19 @@ extension SignUpViewController: UITextFieldDelegate {
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if range.location == 0 && string == " " {
             return false
+        }
+        var text = textField.text!
+        if string != "" {
+            text += string
+        }
+        if textField == userName {
+            if text.count > 20 {
+                return false
+            }
+        } else if textField == password {
+            if text.count > 14 {
+                return false
+            }
         }
         return true
     }
