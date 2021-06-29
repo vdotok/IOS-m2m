@@ -94,16 +94,18 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
         guard let user = VDOTOKObject<UserResponse>().getData() else { return }
         guard let participents = participants else {return}
         let participantsRefIds = participents.map({$0.refID}).filter({$0 != user.refID })
-        vtokSdk?.makeGroupCall(to: participantsRefIds, sessionDelegate: self, mediaType: .videoCall)
         output?(.loadView(mediaType: .videoCall))
+        vtokSdk?.makeGroupCall(to: participantsRefIds, sessionDelegate: self, mediaType: .videoCall)
+        
     }
     
     private func audioCallToParticipants() {
         guard let user = VDOTOKObject<UserResponse>().getData() else { return }
         guard let participents = participants else {return}
         let participantsRefIds = participents.map({$0.refID}).filter({$0 != user.refID })
-        vtokSdk?.makeGroupCall(to: participantsRefIds, sessionDelegate: self, mediaType: .audioCall)
         output?(.loadView(mediaType: .audioCall))
+        vtokSdk?.makeGroupCall(to: participantsRefIds, sessionDelegate: self, mediaType: .audioCall)
+        
         
     }
 }

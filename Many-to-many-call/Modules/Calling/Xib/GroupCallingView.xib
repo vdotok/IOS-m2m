@@ -79,7 +79,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kcF-1S-55b">
                     <rect key="frame" x="97" y="772" width="220" height="60"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EP6-uA-Ulc">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EP6-uA-Ulc">
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <state key="normal" image="video"/>
                             <state key="selected" image="StopVideo"/>

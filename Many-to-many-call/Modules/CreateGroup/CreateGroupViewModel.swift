@@ -127,7 +127,7 @@ extension CreateGroupViewModelImpl {
            deleteUser(id: userId)
             output?(.updateRow(index: row))
         } else {
-            if selectedItems.count == 5 {return}
+            if selectedItems.count == 4 {return}
             selectedItems.append(userId)
             output?(.updateRow(index: row))
         }

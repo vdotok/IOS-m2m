@@ -78,6 +78,7 @@ class GroupCallingView: UIView {
         sender.isSelected = !sender.isSelected
         guard let session = session else {return }
         localView.isHidden = sender.isSelected ? true : false
+        cameraSwitch.isEnabled = sender.isSelected ? false : true
         delegate?.didTapVideo(for: session, state: sender.isSelected ? .videoDisabled :.videoEnabled )
     }
     
@@ -100,7 +101,6 @@ class GroupCallingView: UIView {
             localView.isHidden = true
             cameraSwitch.isHidden = true
             cameraButton.isHidden = true
-            
         case .videoCall:
             titleLable.text = "You are video calling with"
             localView.isHidden = false
@@ -116,6 +116,7 @@ class GroupCallingView: UIView {
             subView.removeFromSuperview()
         }
         localView.addSubview(view)
+       
     }
     
     func updateView(for session: VTokBaseSession) {
@@ -123,16 +124,20 @@ class GroupCallingView: UIView {
         callStatus.isHidden = false
         tryingStack.isHidden = false
         speakerButton.isHidden = true
+        self.session = session
         switch session.state {
         case .calling:
             callStatus.text = "Calling.."
             cameraSwitch.isHidden = true
             speakerButton.isHidden = true
+            cameraButton.isEnabled = false
+            
             setNames()
         case .ringing:
             cameraSwitch.isHidden = true
             speakerButton.isHidden = true
             callStatus.text = "Ringing.."
+            cameraButton.isEnabled = false
             setNames()
         case .connected:
             connectedState()
@@ -158,7 +163,6 @@ class GroupCallingView: UIView {
         speakerButton.isHidden = false
         cameraSwitch.isHidden = false
         speakerButton.isHidden = false
-    
         configureTimer()
     }
     
@@ -174,7 +178,7 @@ class GroupCallingView: UIView {
         case .videoCall:
             localView.isHidden = false
             cameraSwitch.isHidden = false
-            cameraButton.isEnabled = true
+            cameraButton.isEnabled = false
             speakerButton.isSelected = true
         case .screenshare:
             break
@@ -201,6 +205,10 @@ class GroupCallingView: UIView {
     func updateDataSource(with streams: [UserStream]) {
         userStreams = streams
         collectionView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: { [weak self] in
+            self?.cameraButton.isEnabled = true
+        })
+        
     }
 
 }
