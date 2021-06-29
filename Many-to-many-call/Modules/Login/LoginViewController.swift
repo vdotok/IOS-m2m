@@ -75,5 +75,26 @@ extension LoginViewController {
         containerView.layer.cornerRadius = 20
 //        self.navigationController?.navigationBar.isHidden = true
         singupButton.setTitleColor(UIColor(named: "AppIndigoColor"), for: .normal)
+        password.delegate = self
     }
 }
+
+extension LoginViewController: UITextFieldDelegate {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if range.location == 0 && string == " " {
+            return false
+        }
+        var text = textField.text!
+        if string != "" {
+            text += string
+        }
+        if textField == password {
+            if text.count > 14 {
+                return false
+            }
+        }
+        return true
+    }
+}
+
+
