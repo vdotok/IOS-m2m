@@ -45,9 +45,9 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IzF-u3-pJp">
-                            <rect key="frame" x="390" y="39" width="0.0" height="0.0"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <rect key="frame" x="390" y="50.5" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-C0-zG2">
@@ -72,7 +72,7 @@
                     <constraints>
                         <constraint firstItem="0xs-C0-zG2" firstAttribute="leading" secondItem="JEv-QD-MsG" secondAttribute="leading" constant="24" id="1PY-RQ-3jc"/>
                         <constraint firstItem="0xs-C0-zG2" firstAttribute="top" secondItem="JEv-QD-MsG" secondAttribute="top" constant="12" id="bwY-SG-haf"/>
-                        <constraint firstItem="IzF-u3-pJp" firstAttribute="centerY" secondItem="0xs-C0-zG2" secondAttribute="centerY" id="fd0-k7-PQi"/>
+                        <constraint firstItem="IzF-u3-pJp" firstAttribute="centerY" secondItem="0xs-C0-zG2" secondAttribute="centerY" multiplier="1.3" id="fd0-k7-PQi"/>
                         <constraint firstAttribute="trailing" secondItem="IzF-u3-pJp" secondAttribute="trailing" constant="24" id="sSV-FW-yX3"/>
                     </constraints>
                 </view>
@@ -167,6 +167,7 @@
                 <outlet property="cameraSwitch" destination="ZzO-eK-7o5" id="57M-hz-8Iv"/>
                 <outlet property="collectionView" destination="tz0-RS-yGh" id="Ugd-UP-52P"/>
                 <outlet property="connectedView" destination="JEv-QD-MsG" id="pbh-dg-ug3"/>
+                <outlet property="hangupButton" destination="lSB-Bd-2J8" id="3ae-Xt-fqv"/>
                 <outlet property="localView" destination="7LF-yi-hrj" id="DW7-nD-kGX"/>
                 <outlet property="speakerButton" destination="fPo-fW-5AB" id="0fZ-yr-Kkq"/>
                 <outlet property="titleLable" destination="Fj2-Rl-K4J" id="Jbe-Dq-rfh"/>

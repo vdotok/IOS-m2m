@@ -38,6 +38,7 @@ class GroupCallingView: UIView {
     @IBOutlet weak var userNames: UILabel!
     @IBOutlet weak var speakerButton: UIButton!
     @IBOutlet weak var titleLable: UILabel!
+    @IBOutlet weak var hangupButton: UIButton!
     var users:[User]?
     weak var delegate: VideoDelegate?
     var session: VTokBaseSession?
@@ -401,5 +402,11 @@ extension GroupCallingView {
     
     private func secondsToHoursMinutesSeconds (seconds :Int) -> (hours: Int, minutes: Int, seconds: Int) {
       return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+}
+
+extension GroupCallingView {
+    func handleHanup(status: Bool) {
+        hangupButton.isEnabled = status
     }
 }
