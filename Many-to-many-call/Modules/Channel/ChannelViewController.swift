@@ -16,6 +16,7 @@ public class ChannelViewController: UIViewController {
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var emptyLogoutButton: UIButton!
+    @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var onlineView: UIView! {
         didSet {
             onlineView.layer.cornerRadius = onlineView.frame.height/2
@@ -29,6 +30,7 @@ public class ChannelViewController: UIViewController {
     lazy var refreshControl = UIRefreshControl()
     
     var viewModel: ChannelViewModel!
+    private var selectedGroupId: Int? = nil
     let navigationTitle = UILabel()
     
     override public func viewDidLoad() {
@@ -83,8 +85,8 @@ public class ChannelViewController: UIViewController {
             case .disconnected:
                 onlineView.backgroundColor = .red
                 emptyViewOnlineView.backgroundColor = .red
-            default:
-                break
+            case .failure(let message):
+                ProgressHud.showError(message: message, viewController: self)
             }
         }
     }
@@ -191,16 +193,33 @@ extension ChannelViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
 
     }
+    
+    public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = UIContextualAction(style: .normal,
+                                         title: "Edit") { [weak self] (action, view, completionHandler) in
+            self?.selectedGroupId = indexPath.row
+            self?.loadGroupView()
+                                            completionHandler(true)
+        }
+        let trash = UIContextualAction(style: .destructive,
+                                       title: "Delete") { [weak self] (action, view, completionHandler) in
+            self?.viewModel.deleteGroup(with: indexPath.row)
+                                        completionHandler(true)
+        }
+        if viewModel.groups[indexPath.row].participants.count <= 2 {
+            let configuration = UISwipeActionsConfiguration(actions: [trash])
+            return configuration
+        }
+        let configuration = UISwipeActionsConfiguration(actions: [edit, trash])
+        return configuration
+    }
 
 }
 
 extension ChannelViewController: UISearchBarDelegate {
 
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let text = searchBar.text else { return }
         viewModel.isSearching = true
-        //viewModel.filterGroups(with: text)
-
     }
     
     public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -224,5 +243,28 @@ extension ChannelViewController: CreateGroupDelegate {
         viewModel.groups.insert(group, at: 0)
         tableView.reloadData()
     }
+    
+    
+    
+}
+
+extension ChannelViewController {
+    func loadGroupView() {
+        let vc = CreateGroupPopup()
+        vc.modalPresentationStyle = .custom
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
+        vc.delegate = self
+        blurView.isHidden = false
+    }
+}
+
+extension ChannelViewController: PopupDelegate {
+    func didTapDismiss(groupName: String?) {
+        guard let id = selectedGroupId, let name = groupName else {return}
+        blurView.isHidden = true
+        viewModel.editGroup(with: name, id: id)
+    }
+    
     
 }

@@ -21,7 +21,7 @@ struct GroupResponse: Codable {
 }
 struct Group: Codable {
     let adminID, autoCreated: Int
-    let channelKey, channelName, createdDatetime, groupTitle: String
+    var channelKey, channelName, createdDatetime, groupTitle: String
     let id: Int
     let participants: [Participant]
 
