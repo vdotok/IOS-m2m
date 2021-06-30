@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import VdoTokSDK
+import iOSSDKStreaming
 
 enum ScreenType {
     case videoView

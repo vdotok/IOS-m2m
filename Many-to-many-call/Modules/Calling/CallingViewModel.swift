@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import VdoTokSDK
+import iOSSDKStreaming
 import UIKit
 import AVFoundation
 
@@ -41,6 +41,8 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
     var session: VTokBaseSession?
     var users: [User]?
     var player: AVAudioPlayer?
+    var counter = 0
+    var timer = Timer()
     
     init(router: CallingRouter, vtokSdk: VTokSDK, participants: [Participant]? = nil, screenType: ScreenType, session: VTokBaseSession? = nil, users: [User]? = nil) {
         self.router = router
@@ -73,8 +75,11 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
         case .incomingCall:
             guard let session = session else {return}
             guard let selectedUser =  users?.filter({$0.refID == session.to.first}).first else {return}
+           
             playSound()
             output?(.loadIncomingCallView(session: session, user: selectedUser))
+            self.session = session
+            callHangupHandling()
         }
     }
     
@@ -88,22 +93,28 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
         case loadAudioView
         case dismissCallView
         case updateView(session: VTokBaseSession)
+        case updateHangupButton(status: Bool)
     }
     
     private func callToParticipants() {
         guard let user = VDOTOKObject<UserResponse>().getData() else { return }
         guard let participents = participants else {return}
         let participantsRefIds = participents.map({$0.refID}).filter({$0 != user.refID })
-        vtokSdk?.makeGroupCall(to: participantsRefIds, sessionDelegate: self, mediaType: .videoCall)
         output?(.loadView(mediaType: .videoCall))
+        vtokSdk?.makeGroupCall(to: participantsRefIds, sessionDelegate: self, mediaType: .videoCall)
+        callHangupHandling()
+    
+        
     }
     
     private func audioCallToParticipants() {
         guard let user = VDOTOKObject<UserResponse>().getData() else { return }
         guard let participents = participants else {return}
         let participantsRefIds = participents.map({$0.refID}).filter({$0 != user.refID })
-        vtokSdk?.makeGroupCall(to: participantsRefIds, sessionDelegate: self, mediaType: .audioCall)
         output?(.loadView(mediaType: .audioCall))
+        vtokSdk?.makeGroupCall(to: participantsRefIds, sessionDelegate: self, mediaType: .audioCall)
+        callHangupHandling()
+        
         
     }
 }
@@ -111,6 +122,7 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
 extension CallingViewModelImpl {
     func acceptCall(session: VTokBaseSession) {
         stopSound()
+        
         switch session.sessionMediaType {
         case .audioCall:
             output?(.loadView(mediaType: .audioCall))
@@ -121,17 +133,23 @@ extension CallingViewModelImpl {
         default:
             break
         }
+        output?(.updateHangupButton(status: false))
         vtokSdk?.accept(session: session)
+        
     }
     
     func rejectCall(session: VTokBaseSession) {
         vtokSdk?.reject(session: session)
+        timer.invalidate()
+        counter = 0
         output?(.dismissCallView)
         stopSound()
     }
     
     func hangupCall(session: VTokBaseSession) {
         stopSound()
+        timer.invalidate()
+        counter = 0
         vtokSdk?.hangup(session: session)
     }
     
@@ -151,13 +169,19 @@ extension CallingViewModelImpl {
         vtokSdk?.disableVideo(session: session, State: state)
     }
     
+    
+    
+    
 }
 
 extension CallingViewModelImpl: SessionDelegate {
     
     func sessionDidConnnect(session: VTokBaseSession) {
         stopSound()
+        timer.invalidate()
+        counter = 0
         output?(.updateView(session: session))
+        output?(.updateHangupButton(status: true))
     }
     
     func sessionDidFail(session: VTokBaseSession, error: Error) {
@@ -207,6 +231,7 @@ extension CallingViewModelImpl: SessionDelegate {
     }
     
     func sessionTryingToConnect(session: VTokBaseSession) {
+        self.session = session
         output?(.updateView(session: session))
     }
     
@@ -265,5 +290,41 @@ extension CallingViewModelImpl {
         } catch let error as NSError {
             print("error: \(error.localizedDescription)")
         }
+    }
+}
+
+extension CallingViewModelImpl {
+    func callHangupHandling() {
+        timer.invalidate()
+        counter = 0
+        timer = Timer.scheduledTimer(timeInterval: 1,
+                                     target: self,
+                                     selector: #selector(timerAction),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    
+    @objc func timerAction() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {return}
+            self.counter += 1
+            if self.counter > 30 {
+                guard let session = self.session else {return}
+                self.counter = 0
+                self.timer.invalidate()
+                switch session.sessionDirection {
+                case .incoming:
+                    self.vtokSdk?.reject(session: session)
+                    self.output?(.dismissCallView)
+                case .outgoing:
+                    self.vtokSdk?.hangup(session: session)
+                    
+                }
+                
+               
+            }
+        }
+      
+        
     }
 }

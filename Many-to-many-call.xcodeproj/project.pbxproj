@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D63EB33268776340094DA42 /* VdoTokSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D63EB322687762C0094DA42 /* VdoTokSDK.framework */; };
-		5D63EB34268776340094DA42 /* VdoTokSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5D63EB322687762C0094DA42 /* VdoTokSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5D20D782268C56CF00B78BFE /* EditGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */; };
+		5D20D785268C56E500B78BFE /* DeleteGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */; };
+		5D20D787268C570900B78BFE /* DeleteGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D786268C570900B78BFE /* DeleteGroupService.swift */; };
+		5D20D789268C585500B78BFE /* EditGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D788268C585500B78BFE /* EditGroupService.swift */; };
+		5D79DDBE2688E8670020566E /* iOSSDKStreaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D79DDBD2688E85A0020566E /* iOSSDKStreaming.framework */; };
+		5D79DDBF2688E8670020566E /* iOSSDKStreaming.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5D79DDBD2688E85A0020566E /* iOSSDKStreaming.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5D7CD5312677EC8C004799EA /* CreateGroupPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CD52F2677EC8C004799EA /* CreateGroupPopup.swift */; };
 		5D7CD5322677EC8C004799EA /* CreateGroupPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D7CD5302677EC8C004799EA /* CreateGroupPopup.xib */; };
 		5D7CD5362677FC7C004799EA /* YellowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CD5352677FC7C004799EA /* YellowButton.swift */; };
@@ -89,12 +93,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5D63EB312687762C0094DA42 /* PBXContainerItemProxy */ = {
+		5D79DDBC2688E85A0020566E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5D63EB2D2687762C0094DA42 /* VdoTokSDK.xcodeproj */;
+			containerPortal = 5D79DDB82688E85A0020566E /* iOSSDKStreaming.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5D146FA225DE4823000852FB;
-			remoteInfo = VdoTokSDK;
+			remoteInfo = iOSSDKStreaming;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -105,7 +109,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5D63EB34268776340094DA42 /* VdoTokSDK.framework in Embed Frameworks */,
+				5D79DDBF2688E8670020566E /* iOSSDKStreaming.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,7 +119,11 @@
 /* Begin PBXFileReference section */
 		339FD71A8E7BFCF9C82301E5 /* Pods-Many-to-many-call.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.debug.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.debug.xcconfig"; sourceTree = "<group>"; };
 		41EE3D5569782C65BC647172 /* Pods_Many_to_many_call.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Many_to_many_call.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D63EB2D2687762C0094DA42 /* VdoTokSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VdoTokSDK.xcodeproj; path = ../../../VideoTalkSDK/vdotoksdk/VdoTokSDK.xcodeproj; sourceTree = "<group>"; };
+		5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupRequest.swift; sourceTree = "<group>"; };
+		5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupRequest.swift; sourceTree = "<group>"; };
+		5D20D786268C570900B78BFE /* DeleteGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupService.swift; sourceTree = "<group>"; };
+		5D20D788268C585500B78BFE /* EditGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupService.swift; sourceTree = "<group>"; };
+		5D79DDB82688E85A0020566E /* iOSSDKStreaming.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iOSSDKStreaming.xcodeproj; path = "../../../ios-sdk-streaming/iOSSDKStreaming.xcodeproj"; sourceTree = "<group>"; };
 		5D7CD52F2677EC8C004799EA /* CreateGroupPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupPopup.swift; sourceTree = "<group>"; };
 		5D7CD5302677EC8C004799EA /* CreateGroupPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateGroupPopup.xib; sourceTree = "<group>"; };
 		5D7CD5352677FC7C004799EA /* YellowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowButton.swift; sourceTree = "<group>"; };
@@ -202,7 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D63EB33268776340094DA42 /* VdoTokSDK.framework in Frameworks */,
+				5D79DDBE2688E8670020566E /* iOSSDKStreaming.framework in Frameworks */,
 				D2B969D74BD3EE143FB4DDD9 /* Pods_Many_to_many_call.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,10 +218,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5D63EB2E2687762C0094DA42 /* Products */ = {
+		5D79DDB92688E85A0020566E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5D63EB322687762C0094DA42 /* VdoTokSDK.framework */,
+				5D79DDBD2688E85A0020566E /* iOSSDKStreaming.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,7 +316,7 @@
 		5DA7BBE5267562A800A3E292 /* Many-to-many-call */ = {
 			isa = PBXGroup;
 			children = (
-				5D63EB2D2687762C0094DA42 /* VdoTokSDK.xcodeproj */,
+				5DE686E62688DDE50010A4D1 /* Streaming */,
 				5DA7BC262675FDF700A3E292 /* Modules */,
 				5DA7BC212675FDCA00A3E292 /* Model */,
 				5DA7BC182675FD5B00A3E292 /* Common */,
@@ -345,6 +353,8 @@
 				5DA7BC732677594300A3E292 /* AllGroupService.swift */,
 				5DA2C2792677A58B00B6F36C /* AllUsersService.swift */,
 				5DA2C27F2677A61000B6F36C /* CreateGroupService.swift */,
+				5D20D786268C570900B78BFE /* DeleteGroupService.swift */,
+				5D20D788268C585500B78BFE /* EditGroupService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -359,6 +369,8 @@
 				5DA7BC762677595700A3E292 /* AllGroupRequest.swift */,
 				5DA2C2852677A64E00B6F36C /* CreateGroupRequest.swift */,
 				5DA2C2882677A67700B6F36C /* AllUserRequest.swift */,
+				5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */,
+				5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -465,6 +477,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		5DE686E62688DDE50010A4D1 /* Streaming */ = {
+			isa = PBXGroup;
+			children = (
+				5D79DDB82688E85A0020566E /* iOSSDKStreaming.xcodeproj */,
+			);
+			path = Streaming;
+			sourceTree = "<group>";
+		};
 		5F5246C0E6B8E9474E6B2D1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,8 +552,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 5D63EB2E2687762C0094DA42 /* Products */;
-					ProjectRef = 5D63EB2D2687762C0094DA42 /* VdoTokSDK.xcodeproj */;
+					ProductGroup = 5D79DDB92688E85A0020566E /* Products */;
+					ProjectRef = 5D79DDB82688E85A0020566E /* iOSSDKStreaming.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -544,11 +564,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		5D63EB322687762C0094DA42 /* VdoTokSDK.framework */ = {
+		5D79DDBD2688E85A0020566E /* iOSSDKStreaming.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = VdoTokSDK.framework;
-			remoteRef = 5D63EB312687762C0094DA42 /* PBXContainerItemProxy */;
+			path = iOSSDKStreaming.framework;
+			remoteRef = 5D79DDBC2688E85A0020566E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -632,6 +652,7 @@
 				5D7CD5632678A950004799EA /* CallingViewController.swift in Sources */,
 				5DA2C2732677922E00B6F36C /* CreateGroupRouter.swift in Sources */,
 				5DA7BC2D2675FE0900A3E292 /* LoginRouter.swift in Sources */,
+				5D20D782268C56CF00B78BFE /* EditGroupRequest.swift in Sources */,
 				5DA7BBE7267562A800A3E292 /* AppDelegate.swift in Sources */,
 				5D8BC0542678DB83001F1B9B /* IncomingCall.swift in Sources */,
 				5D7CD53D2677FE34004799EA /* IndigoButton.swift in Sources */,
@@ -655,10 +676,12 @@
 				5DA7BC742677594300A3E292 /* AllGroupService.swift in Sources */,
 				5DA7BBE9267562A800A3E292 /* SceneDelegate.swift in Sources */,
 				5DA7BC072675FCCD00A3E292 /* AuthenticationService.swift in Sources */,
+				5D20D785268C56E500B78BFE /* DeleteGroupRequest.swift in Sources */,
 				5D7CD5312677EC8C004799EA /* CreateGroupPopup.swift in Sources */,
 				5DA2C29A2677A98100B6F36C /* CreateGroupCell.swift in Sources */,
 				5DA7BC4A2675FE8300A3E292 /* ChannelBuilder.swift in Sources */,
 				5DA2C2802677A61000B6F36C /* CreateGroupService.swift in Sources */,
+				5D20D787268C570900B78BFE /* DeleteGroupService.swift in Sources */,
 				5D7CD5642678A950004799EA /* CallingBuilder.swift in Sources */,
 				5DA7BC162675FD4500A3E292 /* ApiRequest.swift in Sources */,
 				5D83A8EC2678B68000F001DE /* Constants.swift in Sources */,
@@ -686,6 +709,7 @@
 				5DA7BC2E2675FE0900A3E292 /* LoginViewController.swift in Sources */,
 				5DA7BC492675FE8300A3E292 /* ChannelViewController.swift in Sources */,
 				5DA7BC232675FDDC00A3E292 /* UserResponse.swift in Sources */,
+				5D20D789268C585500B78BFE /* EditGroupService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

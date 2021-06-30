@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import VdoTokSDK
+import iOSSDKStreaming
 
 typealias ChannelViewModelOutput = (ChannelViewModelImpl.Output) -> Void
 
@@ -33,6 +33,8 @@ protocol ChannelViewModelInput {
     func itemAt(row: Int) -> TempGroup
     func moveToVideo(users: [Participant])
     func moveToAudio(users: [Participant])
+    func deleteGroup(with id: Int)
+    func editGroup(with title: String, id: Int)
     func logout()
 }
 
@@ -52,6 +54,8 @@ class ChannelViewModelImpl: ChannelViewModel, ChannelViewModelInput {
     var vtokSdk: VTokSDK?
     var presentCandidates: [String : [String]] = [:]
     var contacts: [User] = []
+    var deleteStore: DeleteStoreable = DeleteService(service: NetworkService())
+    var editStore: EditGroupStoreable = EditGroupService(service: NetworkService())
     
     private let allUserStoreAble: AllUserStoreAble = AllUsersService(service: NetworkService())
     
@@ -179,6 +183,62 @@ extension ChannelViewModelImpl {
     
     func logout() {
         self.vtokSdk?.closeConnection()
+    }
+    
+    func deleteGroup(with id: Int) {
+        output?(.showProgress)
+        let request = DeleteGroupRequest(group_id: groups[id].id)
+        deleteStore.delete(with: request) { [weak self] response in
+            self?.output?(.hideProgress)
+            switch response {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    switch response.status {
+                    case 503:
+                        self?.output?(.failure(message: response.message ))
+                    case 500:
+                        self?.output?(.failure(message: response.message))
+                    case 401:
+                        self?.output?(.failure(message: response.message))
+                    case 600:
+                        self?.output?(.failure(message: response.message))
+                    case 200:
+                        
+                    self?.groups.remove(at: id)
+                    self?.output?(.reload)
+                    default:
+                    break
+                    }
+                }
+                
+                print("\(response)")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func editGroup(with title: String, id: Int) {
+        guard  groups[id].participants.count != 1 else {
+            output?(.failure(message: "one to one group name cannot be updated"))
+            return
+        }
+        output?(.showProgress)
+        let request = EditGroupRequest(group_title: title, group_id: groups[id].id)
+        editStore.editGroup(with: request) { [weak self] result in
+            self?.output?(.hideProgress)
+            switch result {
+            case .success(_):
+                self?.groups[id].groupTitle = title
+                DispatchQueue.main.async {
+                    self?.output?(.reload)
+                }
+               
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
     }
 }
 

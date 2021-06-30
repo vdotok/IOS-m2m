@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import VdoTokSDK
+import iOSSDKStreaming
 
 class VideoCell: UICollectionViewCell {
     

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import VdoTokSDK
+import iOSSDKStreaming
 
 protocol VideoDelegate: class {
     func didTapVideo(for baseSession: VTokBaseSession, state: VideoState)
@@ -38,6 +38,7 @@ class GroupCallingView: UIView {
     @IBOutlet weak var userNames: UILabel!
     @IBOutlet weak var speakerButton: UIButton!
     @IBOutlet weak var titleLable: UILabel!
+    @IBOutlet weak var hangupButton: UIButton!
     var users:[User]?
     weak var delegate: VideoDelegate?
     var session: VTokBaseSession?
@@ -45,7 +46,6 @@ class GroupCallingView: UIView {
     private weak var timer: Timer?
 
     var userStreams: [UserStream]  = []
-    var columns = 4
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -78,6 +78,7 @@ class GroupCallingView: UIView {
         sender.isSelected = !sender.isSelected
         guard let session = session else {return }
         localView.isHidden = sender.isSelected ? true : false
+        cameraSwitch.isEnabled = sender.isSelected ? false : true
         delegate?.didTapVideo(for: session, state: sender.isSelected ? .videoDisabled :.videoEnabled )
     }
     
@@ -100,7 +101,6 @@ class GroupCallingView: UIView {
             localView.isHidden = true
             cameraSwitch.isHidden = true
             cameraButton.isHidden = true
-            
         case .videoCall:
             titleLable.text = "You are video calling with"
             localView.isHidden = false
@@ -116,6 +116,7 @@ class GroupCallingView: UIView {
             subView.removeFromSuperview()
         }
         localView.addSubview(view)
+       
     }
     
     func updateView(for session: VTokBaseSession) {
@@ -123,16 +124,20 @@ class GroupCallingView: UIView {
         callStatus.isHidden = false
         tryingStack.isHidden = false
         speakerButton.isHidden = true
+        self.session = session
         switch session.state {
         case .calling:
             callStatus.text = "Calling.."
             cameraSwitch.isHidden = true
             speakerButton.isHidden = true
+            cameraButton.isEnabled = false
+            
             setNames()
         case .ringing:
             cameraSwitch.isHidden = true
             speakerButton.isHidden = true
             callStatus.text = "Ringing.."
+            cameraButton.isEnabled = false
             setNames()
         case .connected:
             connectedState()
@@ -158,7 +163,6 @@ class GroupCallingView: UIView {
         speakerButton.isHidden = false
         cameraSwitch.isHidden = false
         speakerButton.isHidden = false
-    
         configureTimer()
     }
     
@@ -174,7 +178,7 @@ class GroupCallingView: UIView {
         case .videoCall:
             localView.isHidden = false
             cameraSwitch.isHidden = false
-            cameraButton.isEnabled = true
+            cameraButton.isEnabled = false
             speakerButton.isSelected = true
         case .screenshare:
             break
@@ -201,6 +205,10 @@ class GroupCallingView: UIView {
     func updateDataSource(with streams: [UserStream]) {
         userStreams = streams
         collectionView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: { [weak self] in
+            self?.cameraButton.isEnabled = true
+        })
+        
     }
 
 }
@@ -270,12 +278,13 @@ extension GroupCallingView {
         let height = collectionView.bounds.size.height
         let rowHeight: CGFloat
         
-        // Height of the cell will be equal to the Nth number of the total height of the collection view. Nth number can be get by dividing the height of collectionView with the total number of rows in the collectionView
-        if userStreams.count == 2 {
-            rowHeight = (height - extraNumber) / 2
+        // Added in version 1.0
+        // Added in build 1
+        // Height of cell will be equal to the height of collectionView in case of single cell. Height of cell will be equal to the half of the height of collectionView in case of more than one cell
+        if userStreams.count == 1 {
+            rowHeight = height - extraNumber
         } else {
-            let requiredRows = (self.userStreams.count / 2) + (userStreams.count % 2)
-            rowHeight = (height/CGFloat(requiredRows)) - extraNumber
+            rowHeight = (height - extraNumber) / 2
         }
             
         return rowHeight
@@ -393,5 +402,11 @@ extension GroupCallingView {
     
     private func secondsToHoursMinutesSeconds (seconds :Int) -> (hours: Int, minutes: Int, seconds: Int) {
       return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+}
+
+extension GroupCallingView {
+    func handleHanup(status: Bool) {
+        hangupButton.isEnabled = status
     }
 }

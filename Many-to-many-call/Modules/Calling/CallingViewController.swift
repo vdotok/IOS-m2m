@@ -6,14 +6,15 @@
 //
 
 import UIKit
-import VdoTokSDK
+import iOSSDKStreaming
 
 public class CallingViewController: UIViewController {
 
     var viewModel: CallingViewModel!
     var groupCallingView: GroupCallingView?
     var incomingCallingView: IncomingCall?
-    
+    var counter = 0
+    var timer = Timer()
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -29,23 +30,26 @@ public class CallingViewController: UIViewController {
     
     fileprivate func bindViewModel() {
 
-        viewModel.output = { [unowned self] output in
+        viewModel.output = { [weak self] output in
+            guard let self = self else {return}
             //handle all your bindings here
             switch output {
             case .configureLocal(let view, session: let session):
-                configureLocalView(rendrer: view, session: session)
+                self.configureLocalView(rendrer: view, session: session)
             case .configureRemote(let streams):
-            configureRemote(streams: streams)
+                self.configureRemote(streams: streams)
             case .loadView(let mediaType):
-                loadGroupCallingView(mediaType: mediaType)
+                self.loadGroupCallingView(mediaType: mediaType)
             case .loadIncomingCallView(let session, let user):
-                loadIncomingCallView(session: session, contact: user)
+                self.loadIncomingCallView(session: session, contact: user)
             case .dismissCallView:
                 self.dismiss(animated: true, completion: nil)
             case .updateVideoView(let session):
-                updateVideoView(session: session)
+                self.updateVideoView(session: session)
             case .updateView(let session):
-                configureView(for: session)
+                self.configureView(for: session)
+            case .updateHangupButton(let status):
+                self.handleHangup(status: status)
             default:
                 break
             }
@@ -66,6 +70,11 @@ public class CallingViewController: UIViewController {
         guard let groupCallingView = groupCallingView else {return}
         groupCallingView.updateView(for: session)
         
+    }
+    
+    private func handleHangup(status: Bool) {
+        guard let groupCallingView = groupCallingView else {return}
+        groupCallingView.handleHanup(status: status)
     }
     
     private func configureRemote(streams: [UserStream]) {
@@ -156,3 +165,5 @@ extension CallingViewController: VideoDelegate {
     
     
 }
+
+

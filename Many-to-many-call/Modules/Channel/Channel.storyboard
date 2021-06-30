@@ -46,6 +46,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wb4-Tb-5XG">
                                 <rect key="frame" x="0.0" y="44" width="414" height="718"/>
                             </tableView>
+                            <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfX-p9-YVW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BhH-3P-jY7">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
@@ -132,22 +136,27 @@
                         <viewLayoutGuide key="safeArea" id="H3J-VC-ziS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="mfX-p9-YVW" firstAttribute="top" secondItem="H3J-VC-ziS" secondAttribute="top" id="1Qd-kO-Bmf"/>
+                            <constraint firstItem="H3J-VC-ziS" firstAttribute="bottom" secondItem="mfX-p9-YVW" secondAttribute="bottom" id="3gE-pg-Q0n"/>
                             <constraint firstItem="H3J-VC-ziS" firstAttribute="bottom" secondItem="BhH-3P-jY7" secondAttribute="bottom" id="9vV-63-5XW"/>
                             <constraint firstItem="auf-65-iJQ" firstAttribute="centerX" secondItem="H3J-VC-ziS" secondAttribute="centerX" id="Etg-ZK-N6y"/>
                             <constraint firstItem="BhH-3P-jY7" firstAttribute="leading" secondItem="H3J-VC-ziS" secondAttribute="leading" id="FuW-Ab-Qfh"/>
                             <constraint firstItem="H3J-VC-ziS" firstAttribute="trailing" secondItem="wb4-Tb-5XG" secondAttribute="trailing" id="N5b-8g-cBS"/>
                             <constraint firstItem="H3J-VC-ziS" firstAttribute="bottom" secondItem="wb4-Tb-5XG" secondAttribute="bottom" constant="100" id="QxY-UD-hRx"/>
+                            <constraint firstItem="mfX-p9-YVW" firstAttribute="leading" secondItem="H3J-VC-ziS" secondAttribute="leading" id="W36-ar-zVv"/>
                             <constraint firstItem="rR9-b3-GfU" firstAttribute="centerX" secondItem="H3J-VC-ziS" secondAttribute="centerX" id="X77-pb-ubM"/>
                             <constraint firstItem="BhH-3P-jY7" firstAttribute="top" secondItem="H3J-VC-ziS" secondAttribute="top" id="X9z-ek-Zo8"/>
                             <constraint firstItem="wb4-Tb-5XG" firstAttribute="top" secondItem="H3J-VC-ziS" secondAttribute="top" id="ZPT-vk-rQL"/>
                             <constraint firstItem="H3J-VC-ziS" firstAttribute="trailing" secondItem="BhH-3P-jY7" secondAttribute="trailing" id="c3a-ox-xTX"/>
                             <constraint firstItem="wb4-Tb-5XG" firstAttribute="leading" secondItem="H3J-VC-ziS" secondAttribute="leading" id="hZq-gc-drc"/>
                             <constraint firstItem="xFB-n0-Jdh" firstAttribute="top" secondItem="rR9-b3-GfU" secondAttribute="top" constant="20" id="jVC-6t-evU"/>
+                            <constraint firstItem="H3J-VC-ziS" firstAttribute="trailing" secondItem="mfX-p9-YVW" secondAttribute="trailing" id="r3M-hC-hie"/>
                             <constraint firstItem="rR9-b3-GfU" firstAttribute="top" secondItem="wb4-Tb-5XG" secondAttribute="bottom" id="u3Z-Ge-Xsk"/>
                             <constraint firstItem="xFB-n0-Jdh" firstAttribute="trailing" secondItem="rR9-b3-GfU" secondAttribute="trailing" constant="24" id="vAn-ov-7Rm"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blurView" destination="mfX-p9-YVW" id="0A5-mI-vd3"/>
                         <outlet property="emptyLogoutButton" destination="rR9-b3-GfU" id="LI4-Dg-09u"/>
                         <outlet property="emptyView" destination="BhH-3P-jY7" id="9Y8-nJ-Gdg"/>
                         <outlet property="emptyViewOnlineView" destination="6Yg-3l-Nh1" id="3X6-3m-ki5"/>
