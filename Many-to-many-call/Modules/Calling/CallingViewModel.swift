@@ -140,6 +140,8 @@ extension CallingViewModelImpl {
     
     func rejectCall(session: VTokBaseSession) {
         vtokSdk?.reject(session: session)
+        timer.invalidate()
+        counter = 0
         output?(.dismissCallView)
         stopSound()
     }
