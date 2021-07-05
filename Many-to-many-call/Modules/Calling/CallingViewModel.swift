@@ -175,89 +175,67 @@ extension CallingViewModelImpl {
 }
 
 extension CallingViewModelImpl: SessionDelegate {
+    func configureLocalViewFor(session: VTokBaseSession, renderer: UIView) {
+        output?(.configureLocal(view: renderer, session: session))
+    }
     
-    func sessionDidConnnect(session: VTokBaseSession) {
+    func configureRemoteViews(for session: VTokBaseSession, with streams: [UserStream]) {
+        output?(.configureRemote(streams: streams))
+    }
+    
+    func stateDidUpdate(for session: VTokBaseSession) {
+        self.session = session
+        switch session.state {
+        case .ringing:
+            output?(.updateView(session: session))
+        case .connected:
+          didConnect()
+        case .rejected:
+          sessionReject()
+        case .missedCall:
+            sessionMissed()
+        case .hangup:
+            sessionHangup()
+        case .tryingToConnect:
+            output?(.updateView(session: session))
+        default:
+            break
+        }
+    }
+    
+    
+}
+
+extension CallingViewModelImpl {
+    private func didConnect() {
         stopSound()
         timer.invalidate()
         counter = 0
+        guard let session = session else {return}
         output?(.updateView(session: session))
         output?(.updateHangupButton(status: true))
     }
     
-    func sessionDidFail(session: VTokBaseSession, error: Error) {
-        
-    }
-    
-    func sessionDidDisconnect(session: VTokBaseSession, error: Error?) {
-        
-    }
-    
-    func sessionWasRejected(session: VTokBaseSession, message: String) {
+    private func sessionReject() {
         DispatchQueue.main.async {[weak self] in
             self?.output?(.dismissCallView)
             self?.stopSound()
         }
     }
     
-    func userBusyFor(session: VTokBaseSession, message: String) {
-        
+    private func sessionMissed() {
+        DispatchQueue.main.async {[weak self] in
+            self?.output?(.dismissCallView)
+            self?.stopSound()
+        }
     }
     
-    func sessionDidHangUp(session: VTokBaseSession, message: String) {
+    private func sessionHangup() {
         DispatchQueue.main.async {[weak self] in
             
             self?.output?(.dismissCallView)
         }
     }
-    
-    func configureLocalViewFor(session: VTokBaseSession, renderer: UIView) {
-        output?(.configureLocal(view: renderer, session: session))
-    }
-    
-    func configureRemoteFor(session: VTokBaseSession, renderer: UIView) {
-        
-    }
-    
-    func configureRemoteViews(for streams: [UserStream]) {
-        output?(.configureRemote(streams: streams))
-    }
-    
-    func remoteParticipantDidRemove() {
-        
-    }
-    
-    func handle(stateInformation: StateInformation, for session: VTokBaseSession) {
-        
-    }
-    
-    func sessionTryingToConnect(session: VTokBaseSession) {
-        self.session = session
-        output?(.updateView(session: session))
-    }
-    
-    func sessionMissed(session: VTokBaseSession, message: String) {
-        DispatchQueue.main.async {[weak self] in
-            self?.output?(.dismissCallView)
-            self?.stopSound()
-        }
-    }
-    
-    func sessionRinging(session: VTokBaseSession, message: String) {
-        output?(.updateView(session: session))
-    }
-    
-    func invalid(session: VTokBaseSession, message: String) {
-        
-    }
-    
-    func sessionDidUpdate(session: VTokBaseSession) {
-        DispatchQueue.main.async { [weak self] in
-            self?.output?(.updateView(session: session))
-        }
-        
-    }
-
-    
 }
 
 extension CallingViewModelImpl {
