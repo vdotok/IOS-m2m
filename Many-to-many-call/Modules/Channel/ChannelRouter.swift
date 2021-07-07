@@ -17,19 +17,19 @@ class ChannelRouter {
 }
 
 extension ChannelRouter {
-    func moveToCalling(sdk: VTokSDK, particinats: [Participant], users: [User] ) {
+    func moveToCalling(sdk: VideoTalkSDK, particinats: [Participant], users: [User] ) {
         let builder = CallingBuilder().build(with: self.navigationController, vtokSdk: sdk, participants: particinats, screenType: .videoView, contact: users)
         builder.modalPresentationStyle = .fullScreen
         navigationController?.present(builder, animated: true, completion: nil)
     }
     
-    func moveToIncomingCall(sdk: VTokSDK, baseSession: VTokBaseSession, users: [User]) {
+    func moveToIncomingCall(sdk: VideoTalkSDK, baseSession: VTokBaseSession, users: [User]) {
         let builder = CallingBuilder().build(with: self.navigationController, vtokSdk: sdk, participants: nil, screenType: .incomingCall, session: baseSession, contact: users)
         builder.modalPresentationStyle = .fullScreen
         navigationController?.present(builder, animated: true, completion: nil)
     }
     
-    func moveToAudio(sdk: VTokSDK, participants: [Participant], users: [User]) {
+    func moveToAudio(sdk: VideoTalkSDK, participants: [Participant], users: [User]) {
         let builder = CallingBuilder().build(with: self.navigationController, vtokSdk: sdk, participants: participants, screenType: .audioView, contact: users)
         builder.modalPresentationStyle = .fullScreen
         navigationController?.present(builder, animated: true, completion: nil)
