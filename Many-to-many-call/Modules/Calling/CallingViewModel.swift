@@ -163,6 +163,7 @@ extension CallingViewModelImpl: SessionDelegate {
     func sessionDidConnnect(session: VTokBaseSession) {
         stopSound()
         output?(.updateView(session: session))
+        DataManager.shared.callStarted()
     }
     
     func sessionDidFail(session: VTokBaseSession, error: Error) {
@@ -188,6 +189,7 @@ extension CallingViewModelImpl: SessionDelegate {
         DispatchQueue.main.async {[weak self] in
             
             self?.output?(.dismissCallView)
+            DataManager.shared.callEnd(session: session)
         }
     }
     
