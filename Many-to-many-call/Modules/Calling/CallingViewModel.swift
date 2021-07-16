@@ -108,7 +108,7 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
                                               requestID: requestId,
                                               sessionUUID: requestId,
                                               sessionMediaType: sessionMediaType,
-                                              callType: .onetomany)
+                                              callType: .manytomany)
         output?(.loadView(mediaType: sessionMediaType))
         vtokSdk?.initiate(session: baseSession, sessionDelegate: self)
         callHangupHandling()
