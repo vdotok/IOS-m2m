@@ -51,7 +51,7 @@ class ChannelViewModelImpl: ChannelViewModel, ChannelViewModelInput {
     var searchGroup: [Group] = []
     var isSearching: Bool = false
     var store: AllGroupStroreable
-    var vtokSdk: VTokSDK?
+    var vtokSdk: VideoTalkSDK?
     var presentCandidates: [String : [String]] = [:]
     var contacts: [User] = []
     var deleteStore: DeleteStoreable = DeleteService(service: NetworkService())
@@ -243,26 +243,17 @@ extension ChannelViewModelImpl {
 }
 
 extension ChannelViewModelImpl: SDKConnectionDelegate {
-    func socketDidDisconnect() {
-        output?(.disconnected)
-    }
     
-    func didRegister() {
-        output?(.connected)
+    func didGenerate(output: SDKOutPut) {
+        switch output {
+        case .disconnected(_):
+            self.output?(.disconnected)
+        case .registered:
+            self.output?(.connected)
+        case .sessionRequest(let sessionRequest):
+            guard let sdk = vtokSdk else {return}
+            router.moveToIncomingCall(sdk: sdk, baseSession: sessionRequest, users: self.contacts)
+        }
     }
-    
-    func didFailToRegister(with error: String) {
-        
-    }
-    
-    func didReceived(sessionRequest: VTokBaseSession) {
-        guard let sdk = vtokSdk else {return}
-        router.moveToIncomingCall(sdk: sdk, baseSession: sessionRequest, users: self.contacts)
-    }
-    
-    func didMissedSessionRequest(sessionUUID: String, message: String) {
-        
-    }
-
     
 }

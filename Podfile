@@ -6,10 +6,7 @@ target 'Many-to-many-call' do
   use_frameworks!
 
   # Pods for Many-to-many-call
-pod 'KRProgressHUD'
-  pod 'SocketRocket'
+  pod 'KRProgressHUD'
   pod 'IQKeyboardManagerSwift'
-  pod 'GoogleWebRTC'
-
-
+  pod 'VdoTokStreaming'
 end
