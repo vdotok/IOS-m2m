@@ -211,6 +211,10 @@ extension CallingViewModelImpl: SessionDelegate {
         }
     }
     
+    func didGetPublicUrl(for session: VTokBaseSession, with url: String) {
+        
+    }
+    
     
 }
 

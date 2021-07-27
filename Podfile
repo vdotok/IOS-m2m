@@ -8,6 +8,6 @@ target 'Many-to-many-call' do
   # Pods for Many-to-many-call
   pod 'KRProgressHUD'
   pod 'IQKeyboardManagerSwift'
-  pod 'InternalStrategy', :path => '/Users/usamafarooq/Documents/Norgic/internal pods/internal_strategy'
-
+ # pod 'InternalStrategy', :path => '../internal_strategy'
+  pod 'VdoTokStreaming'
 end
