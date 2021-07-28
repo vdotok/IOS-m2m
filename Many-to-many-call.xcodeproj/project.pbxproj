@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A6A661476A390F0756056DE /* Pods_Many_to_many_call.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D447DD6647C15D9236F5C7DE /* Pods_Many_to_many_call.framework */; };
 		5D20D782268C56CF00B78BFE /* EditGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */; };
 		5D20D785268C56E500B78BFE /* DeleteGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */; };
 		5D20D787268C570900B78BFE /* DeleteGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D786268C570900B78BFE /* DeleteGroupService.swift */; };
@@ -87,7 +88,6 @@
 		5DA7BC8726775AB900A3E292 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA7BC8626775AB900A3E292 /* Color+Extension.swift */; };
 		5DA7BC8C26775C9E00A3E292 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA7BC8A26775C9E00A3E292 /* Colors.xcassets */; };
 		5DD9727526775D05007919AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DD9727426775D05007919AC /* Assets.xcassets */; };
-		762A03AAD24E829A9CE8538E /* Pods_Many_to_many_call.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25EAC160D29395FBA1A0F1D4 /* Pods_Many_to_many_call.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -104,9 +104,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0E456FBDF7F61763B382FDA8 /* Pods-Many-to-many-call.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.release.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.release.xcconfig"; sourceTree = "<group>"; };
-		25EAC160D29395FBA1A0F1D4 /* Pods_Many_to_many_call.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Many_to_many_call.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		34F9A1761B9BDBECD59CE76A /* Pods-Many-to-many-call.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.debug.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.debug.xcconfig"; sourceTree = "<group>"; };
+		01DB8E86DB9E50996C92465C /* Pods-Many-to-many-call.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.release.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.release.xcconfig"; sourceTree = "<group>"; };
 		5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupRequest.swift; sourceTree = "<group>"; };
 		5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupRequest.swift; sourceTree = "<group>"; };
 		5D20D786268C570900B78BFE /* DeleteGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupService.swift; sourceTree = "<group>"; };
@@ -189,6 +187,8 @@
 		5DA7BC8626775AB900A3E292 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		5DA7BC8A26775C9E00A3E292 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5DD9727426775D05007919AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB3306033A0DA230C53507EB /* Pods-Many-to-many-call.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.debug.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.debug.xcconfig"; sourceTree = "<group>"; };
+		D447DD6647C15D9236F5C7DE /* Pods_Many_to_many_call.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Many_to_many_call.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,13 +196,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				762A03AAD24E829A9CE8538E /* Pods_Many_to_many_call.framework in Frameworks */,
+				1A6A661476A390F0756056DE /* Pods_Many_to_many_call.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A00322357D223119405BC1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D447DD6647C15D9236F5C7DE /* Pods_Many_to_many_call.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5D7CD5342677FC71004799EA /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,7 +286,7 @@
 				5DA7BBE5267562A800A3E292 /* Many-to-many-call */,
 				5DA7BBE4267562A800A3E292 /* Products */,
 				B6FB81162196AF1941014299 /* Pods */,
-				A3E177BD63EA65ACFE188690 /* Frameworks */,
+				5A00322357D223119405BC1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -461,19 +469,11 @@
 			path = Streaming;
 			sourceTree = "<group>";
 		};
-		A3E177BD63EA65ACFE188690 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				25EAC160D29395FBA1A0F1D4 /* Pods_Many_to_many_call.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		B6FB81162196AF1941014299 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				34F9A1761B9BDBECD59CE76A /* Pods-Many-to-many-call.debug.xcconfig */,
-				0E456FBDF7F61763B382FDA8 /* Pods-Many-to-many-call.release.xcconfig */,
+				BB3306033A0DA230C53507EB /* Pods-Many-to-many-call.debug.xcconfig */,
+				01DB8E86DB9E50996C92465C /* Pods-Many-to-many-call.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -485,12 +485,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DA7BBF7267562AA00A3E292 /* Build configuration list for PBXNativeTarget "Many-to-many-call" */;
 			buildPhases = (
-				1BF5B73CAC2330F6ED5BA7D4 /* [CP] Check Pods Manifest.lock */,
+				1E0B9510A72601E5BD436910 /* [CP] Check Pods Manifest.lock */,
 				5DA7BBDF267562A800A3E292 /* Sources */,
 				5DA7BBE0267562A800A3E292 /* Frameworks */,
 				5DA7BBE1267562A800A3E292 /* Resources */,
 				5D63EB1E26875CC50094DA42 /* Embed Frameworks */,
-				DC3BDFD597E91865B1E25427 /* [CP] Embed Pods Frameworks */,
+				85490D2B7EA02538EAD676C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -559,7 +559,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1BF5B73CAC2330F6ED5BA7D4 /* [CP] Check Pods Manifest.lock */ = {
+		1E0B9510A72601E5BD436910 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -581,7 +581,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DC3BDFD597E91865B1E25427 /* [CP] Embed Pods Frameworks */ = {
+		85490D2B7EA02538EAD676C9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -813,7 +813,7 @@
 		};
 		5DA7BBF8267562AA00A3E292 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34F9A1761B9BDBECD59CE76A /* Pods-Many-to-many-call.debug.xcconfig */;
+			baseConfigurationReference = BB3306033A0DA230C53507EB /* Pods-Many-to-many-call.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -839,7 +839,7 @@
 		};
 		5DA7BBF9267562AA00A3E292 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E456FBDF7F61763B382FDA8 /* Pods-Many-to-many-call.release.xcconfig */;
+			baseConfigurationReference = 01DB8E86DB9E50996C92465C /* Pods-Many-to-many-call.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
