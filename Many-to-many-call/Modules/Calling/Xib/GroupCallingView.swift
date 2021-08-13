@@ -7,6 +7,7 @@
 
 import UIKit
 import iOSSDKStreaming
+import AVKit
 
 protocol VideoDelegate: class {
     func didTapVideo(for baseSession: VTokBaseSession, state: VideoState)
@@ -15,6 +16,9 @@ protocol VideoDelegate: class {
     func didTapFlip(for baseSession: VTokBaseSession, type: CameraType)
     func didTapSpeaker(baseSession: VTokBaseSession, state: SpeakerState)
 }
+
+
+
 
 
 
@@ -39,22 +43,45 @@ class GroupCallingView: UIView {
     @IBOutlet weak var speakerButton: UIButton!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var hangupButton: UIButton!
+    
+    @IBOutlet weak var routePickerViewContainer: UIView!
+    
+    var externalWindow: UIWindow!
+    
+    
     var users:[User]?
     weak var delegate: VideoDelegate?
     var session: VTokBaseSession?
     private var counter: Int = 0
     private weak var timer: Timer?
-
+    
     var userStreams: [UserStream]  = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        addNotificationObserver()
+        addRoutePicker()
         configureCollectionView()
         connectedView.isHidden = true
         callStatus.isHidden = true
         localView.frame = CGRect(x: UIScreen.main.bounds.size.width - localView.frame.size.width + 1.1, y: UIScreen.main.bounds.size.height - localView.frame.size.height * 1.1, width: 120, height: 170)
+        checkForExistingScreenAndInitializeIfPresent()
+    }
+    
+    
+    
+    func addNotificationObserver(){
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleScreenDidConnect(_:)), name: UIScreen.didConnectNotification , object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleScreenDidDisconnect(_:)), name: UIScreen.didConnectNotification , object: nil)
         
     }
+    
+    
+    
+    
+    
     
     @IBAction func didTapSpeaker(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
@@ -94,7 +121,7 @@ class GroupCallingView: UIView {
     func updateAudioVideoview(for session: VTokBaseSession) {
         
         self.session = session
-      
+        
         switch session.sessionMediaType {
         case .audioCall:
             titleLable.text = "You are audio calling with"
@@ -114,11 +141,11 @@ class GroupCallingView: UIView {
             subView.removeFromSuperview()
         }
         localView.addSubview(view)
-       
+        
     }
     
     func updateView(for session: VTokBaseSession) {
-      
+        
         callStatus.isHidden = false
         tryingStack.isHidden = false
         speakerButton.isHidden = true
@@ -190,11 +217,11 @@ class GroupCallingView: UIView {
     
     static func getView() -> GroupCallingView {
         let viewsArray = Bundle.main.loadNibNamed("GroupCallingView", owner: self, options: nil) as AnyObject as? NSArray
-            guard (viewsArray?.count)! < 0 else{
-                let view = viewsArray?.firstObject as! GroupCallingView
-                view.translatesAutoresizingMaskIntoConstraints = false
-                return view
-            }
+        guard (viewsArray?.count)! < 0 else{
+            let view = viewsArray?.firstObject as! GroupCallingView
+            view.translatesAutoresizingMaskIntoConstraints = false
+            return view
+        }
         return GroupCallingView()
     }
     
@@ -206,7 +233,7 @@ class GroupCallingView: UIView {
         })
         
     }
-
+    
 }
 
 extension GroupCallingView: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -219,7 +246,7 @@ extension GroupCallingView: UICollectionViewDelegate, UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
         cell.configure(with: userStreams[indexPath.row], users: users)
         
-    
+        
         return cell
     }
     
@@ -282,7 +309,7 @@ extension GroupCallingView {
         } else {
             rowHeight = (height - extraNumber) / 2
         }
-            
+        
         return rowHeight
     }
 }
@@ -290,54 +317,54 @@ extension GroupCallingView {
 
 extension GroupCallingView {
     @IBAction func handlePan(_ gesture: UIPanGestureRecognizer) {
-      // 1
-      let translation = gesture.translation(in: localView)
-
-      // 2
-      guard let gestureView = gesture.view else {
-        return
-      }
-
-      gestureView.center = CGPoint(
-        x: gestureView.center.x + translation.x,
-        y: gestureView.center.y + translation.y
-      )
-
-      // 3
-      gesture.setTranslation(.zero, in: localView)
+        // 1
+        let translation = gesture.translation(in: localView)
+        
+        // 2
+        guard let gestureView = gesture.view else {
+            return
+        }
+        
+        gestureView.center = CGPoint(
+            x: gestureView.center.x + translation.x,
+            y: gestureView.center.y + translation.y
+        )
+        
+        // 3
+        gesture.setTranslation(.zero, in: localView)
         
         guard gesture.state == .ended else {
-          return
+            return
         }
-
+        
         // 1
         let velocity = gesture.velocity(in: localView)
         let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
         let slideMultiplier = magnitude / 200
-
+        
         // 2
         let slideFactor = 0.1 * slideMultiplier
         // 3
         var finalPoint = CGPoint(
             x: gestureView.center.x + (velocity.x * slideFactor),
-          y: gestureView.center.y + (velocity.y * slideFactor)
+            y: gestureView.center.y + (velocity.y * slideFactor)
         )
-
+        
         // 4
         finalPoint.x = min(max(finalPoint.x, 0), localView.bounds.width)
         finalPoint.y = min(max(finalPoint.y, 0), localView.bounds.height)
         let screenSize = self.bounds
-          let constraints = self.getValidConstraints(for: gestureView)
+        let constraints = self.getValidConstraints(for: gestureView)
         let point = CGPoint(x: screenSize.width - constraints.trailing - 65, y: screenSize.height - constraints.bottom - 85)
         
         // 5
         UIView.animate(
             withDuration: 0.1,
-          delay: 0,
-          options: .curveEaseOut,
-          animations: {
-            gestureView.center = point
-          })
+            delay: 0,
+            options: .curveEaseOut,
+            animations: {
+                gestureView.center = point
+            })
     }
     
     private func getValidConstraints(for view: UIView) -> (trailing: CGFloat, bottom: CGFloat) {
@@ -385,7 +412,7 @@ extension GroupCallingView {
             timeString += intervalFormatter(interval: h) + ":"
         }
         timeString += intervalFormatter(interval: m) + ":" +
-                        intervalFormatter(interval: s)
+            intervalFormatter(interval: s)
         callTime.text = timeString
     }
     
@@ -397,7 +424,7 @@ extension GroupCallingView {
     }
     
     private func secondsToHoursMinutesSeconds (seconds :Int) -> (hours: Int, minutes: Int, seconds: Int) {
-      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
 }
 
@@ -405,4 +432,55 @@ extension GroupCallingView {
     func handleHanup(status: Bool) {
         hangupButton.isEnabled = status
     }
+}
+
+
+extension GroupCallingView{
+    
+    func addRoutePicker(){
+        let routePickerView = AVRoutePickerView()
+        routePickerView.backgroundColor = UIColor.clear
+        routePickerViewContainer.addSubview(routePickerView)
+        routePickerView.fixInSuperView()
+    }
+    
+    func checkForExistingScreenAndInitializeIfPresent(){
+        guard UIScreen.screens.count > 1 else {
+            return
+        }
+        let externalScreen = UIScreen.screens[1]
+        setUpExternal(screen: externalScreen)
+    }
+    
+    func setUpExternal(screen: UIScreen){
+        guard let stream = userStreams.first else {
+            return
+        }
+        let externalScreenBounds = screen.bounds
+        
+        self.externalWindow = UIWindow(frame: externalScreenBounds)
+        
+        stream.renderer.removeFromSuperview()
+        self.externalWindow.addSubview(stream.renderer)
+        stream.renderer.fixInMiddleOfSuperView()
+        self.externalWindow.isHidden = false
+    }
+    
+    @objc  func handleScreenDidConnect(_ notification: Notification) {
+        guard let newScreen = notification.object as? UIScreen else {
+            return
+        }
+        setUpExternal(screen: newScreen)
+    }
+    
+    @objc   func handleScreenDidDisconnect(_ notification: Notification){
+        guard externalWindow != nil else {
+            return
+        }
+        externalWindow.isHidden = true
+        externalWindow = nil
+        
+    }
+    
+    
 }

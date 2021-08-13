@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A6A661476A390F0756056DE /* Pods_Many_to_many_call.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D447DD6647C15D9236F5C7DE /* Pods_Many_to_many_call.framework */; };
 		5D20D782268C56CF00B78BFE /* EditGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */; };
 		5D20D785268C56E500B78BFE /* DeleteGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */; };
 		5D20D787268C570900B78BFE /* DeleteGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D786268C570900B78BFE /* DeleteGroupService.swift */; };
@@ -30,8 +29,6 @@
 		5D83A8EC2678B68000F001DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83A8EB2678B68000F001DE /* Constants.swift */; };
 		5D8BC0522678DB6E001F1B9B /* IncomingCall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BC0512678DB6E001F1B9B /* IncomingCall.xib */; };
 		5D8BC0542678DB83001F1B9B /* IncomingCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BC0532678DB83001F1B9B /* IncomingCall.swift */; };
-		5D9DA4C726B2BA3000DED0F6 /* iOSSDKStreaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9DA4C626B2BA2200DED0F6 /* iOSSDKStreaming.framework */; };
-		5D9DA4C826B2BA3000DED0F6 /* iOSSDKStreaming.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9DA4C626B2BA2200DED0F6 /* iOSSDKStreaming.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5DA2C2722677922E00B6F36C /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DA2C26D2677922E00B6F36C /* CreateGroup.storyboard */; };
 		5DA2C2732677922E00B6F36C /* CreateGroupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA2C26E2677922E00B6F36C /* CreateGroupRouter.swift */; };
 		5DA2C2742677922E00B6F36C /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA2C26F2677922E00B6F36C /* CreateGroupViewController.swift */; };
@@ -90,12 +87,17 @@
 		5DA7BC8726775AB900A3E292 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA7BC8626775AB900A3E292 /* Color+Extension.swift */; };
 		5DA7BC8C26775C9E00A3E292 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA7BC8A26775C9E00A3E292 /* Colors.xcassets */; };
 		5DD9727526775D05007919AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DD9727426775D05007919AC /* Assets.xcassets */; };
+		A87EF03726C652E0008BF39F /* iOSSDKStreaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A87EF03626C652D5008BF39F /* iOSSDKStreaming.framework */; };
+		A87EF03826C652E0008BF39F /* iOSSDKStreaming.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A87EF03626C652D5008BF39F /* iOSSDKStreaming.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A87EF03C26C65883008BF39F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A87EF03A26C65883008BF39F /* MediaPlayer.framework */; };
+		A87EF04126C68A81008BF39F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87EF04026C68A81008BF39F /* UIView+Extension.swift */; };
+		ADABD8BBAAF93033914E4C5D /* Pods_Many_to_many_call.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D3770AAE7103A5D5091BE2 /* Pods_Many_to_many_call.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5D9DA4C526B2BA2200DED0F6 /* PBXContainerItemProxy */ = {
+		A87EF03526C652D5008BF39F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5D9DA4C126B2BA2200DED0F6 /* iOSSDKStreaming.xcodeproj */;
+			containerPortal = A87EF03126C652D5008BF39F /* iOSSDKStreaming.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5D146FA225DE4823000852FB;
 			remoteInfo = iOSSDKStreaming;
@@ -109,7 +111,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5D9DA4C826B2BA3000DED0F6 /* iOSSDKStreaming.framework in Embed Frameworks */,
+				A87EF03826C652E0008BF39F /* iOSSDKStreaming.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,7 +119,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		01DB8E86DB9E50996C92465C /* Pods-Many-to-many-call.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.release.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.release.xcconfig"; sourceTree = "<group>"; };
 		5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupRequest.swift; sourceTree = "<group>"; };
 		5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupRequest.swift; sourceTree = "<group>"; };
 		5D20D786268C570900B78BFE /* DeleteGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupService.swift; sourceTree = "<group>"; };
@@ -140,7 +141,6 @@
 		5D83A8EB2678B68000F001DE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5D8BC0512678DB6E001F1B9B /* IncomingCall.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingCall.xib; sourceTree = "<group>"; };
 		5D8BC0532678DB83001F1B9B /* IncomingCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingCall.swift; sourceTree = "<group>"; };
-		5D9DA4C126B2BA2200DED0F6 /* iOSSDKStreaming.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iOSSDKStreaming.xcodeproj; path = "../../../ios-sdk-streaming/iOSSDKStreaming.xcodeproj"; sourceTree = "<group>"; };
 		5DA2C26D2677922E00B6F36C /* CreateGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateGroup.storyboard; sourceTree = "<group>"; };
 		5DA2C26E2677922E00B6F36C /* CreateGroupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupRouter.swift; sourceTree = "<group>"; };
 		5DA2C26F2677922E00B6F36C /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
@@ -201,8 +201,12 @@
 		5DA7BC8626775AB900A3E292 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		5DA7BC8A26775C9E00A3E292 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5DD9727426775D05007919AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BB3306033A0DA230C53507EB /* Pods-Many-to-many-call.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.debug.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.debug.xcconfig"; sourceTree = "<group>"; };
-		D447DD6647C15D9236F5C7DE /* Pods_Many_to_many_call.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Many_to_many_call.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63F08153C618A9E869488399 /* Pods-Many-to-many-call.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.debug.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.debug.xcconfig"; sourceTree = "<group>"; };
+		A87EF03126C652D5008BF39F /* iOSSDKStreaming.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iOSSDKStreaming.xcodeproj; path = "../../../ios-sdk-streaming/iOSSDKStreaming.xcodeproj"; sourceTree = "<group>"; };
+		A87EF03A26C65883008BF39F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		A87EF04026C68A81008BF39F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		F334F4315094B5F6C2CAE536 /* Pods-Many-to-many-call.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.release.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.release.xcconfig"; sourceTree = "<group>"; };
+		F8D3770AAE7103A5D5091BE2 /* Pods_Many_to_many_call.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Many_to_many_call.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,18 +214,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D9DA4C726B2BA3000DED0F6 /* iOSSDKStreaming.framework in Frameworks */,
-				1A6A661476A390F0756056DE /* Pods_Many_to_many_call.framework in Frameworks */,
+				A87EF03C26C65883008BF39F /* MediaPlayer.framework in Frameworks */,
+				A87EF03726C652E0008BF39F /* iOSSDKStreaming.framework in Frameworks */,
+				ADABD8BBAAF93033914E4C5D /* Pods_Many_to_many_call.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5A00322357D223119405BC1F /* Frameworks */ = {
+		063CF9BCF5708A89B77C4DEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D447DD6647C15D9236F5C7DE /* Pods_Many_to_many_call.framework */,
+				A87EF03A26C65883008BF39F /* MediaPlayer.framework */,
+				F8D3770AAE7103A5D5091BE2 /* Pods_Many_to_many_call.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -263,14 +269,6 @@
 			path = Xib;
 			sourceTree = "<group>";
 		};
-		5D9DA4C226B2BA2200DED0F6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5D9DA4C626B2BA2200DED0F6 /* iOSSDKStreaming.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		5DA2C26C2677921600B6F36C /* CreateGroup */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,7 +307,7 @@
 				5DA7BBE5267562A800A3E292 /* Many-to-many-call */,
 				5DA7BBE4267562A800A3E292 /* Products */,
 				B6FB81162196AF1941014299 /* Pods */,
-				5A00322357D223119405BC1F /* Frameworks */,
+				063CF9BCF5708A89B77C4DEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -324,7 +322,7 @@
 		5DA7BBE5267562A800A3E292 /* Many-to-many-call */ = {
 			isa = PBXGroup;
 			children = (
-				5DBB9F4C26AEDF89000F51E6 /* Streaming */,
+				A87EF02E26C652A6008BF39F /* Streaming */,
 				5DA7BC262675FDF700A3E292 /* Modules */,
 				5DA7BC212675FDCA00A3E292 /* Model */,
 				5DA7BC182675FD5B00A3E292 /* Common */,
@@ -403,6 +401,7 @@
 				5DA7BC58267754CD00A3E292 /* ProgresHud.swift */,
 				5DA7BC8626775AB900A3E292 /* Color+Extension.swift */,
 				5D83A8EB2678B68000F001DE /* Constants.swift */,
+				A87EF04026C68A81008BF39F /* UIView+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -485,19 +484,27 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		5DBB9F4C26AEDF89000F51E6 /* Streaming */ = {
+		A87EF02E26C652A6008BF39F /* Streaming */ = {
 			isa = PBXGroup;
 			children = (
-				5D9DA4C126B2BA2200DED0F6 /* iOSSDKStreaming.xcodeproj */,
+				A87EF03126C652D5008BF39F /* iOSSDKStreaming.xcodeproj */,
 			);
 			path = Streaming;
+			sourceTree = "<group>";
+		};
+		A87EF03226C652D5008BF39F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A87EF03626C652D5008BF39F /* iOSSDKStreaming.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		B6FB81162196AF1941014299 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BB3306033A0DA230C53507EB /* Pods-Many-to-many-call.debug.xcconfig */,
-				01DB8E86DB9E50996C92465C /* Pods-Many-to-many-call.release.xcconfig */,
+				63F08153C618A9E869488399 /* Pods-Many-to-many-call.debug.xcconfig */,
+				F334F4315094B5F6C2CAE536 /* Pods-Many-to-many-call.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -509,12 +516,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DA7BBF7267562AA00A3E292 /* Build configuration list for PBXNativeTarget "Many-to-many-call" */;
 			buildPhases = (
-				1E0B9510A72601E5BD436910 /* [CP] Check Pods Manifest.lock */,
+				C227F57E156A997A7C765AB2 /* [CP] Check Pods Manifest.lock */,
 				5DA7BBDF267562A800A3E292 /* Sources */,
 				5DA7BBE0267562A800A3E292 /* Frameworks */,
 				5DA7BBE1267562A800A3E292 /* Resources */,
 				5D63EB1E26875CC50094DA42 /* Embed Frameworks */,
-				85490D2B7EA02538EAD676C9 /* [CP] Embed Pods Frameworks */,
+				71960444667F8600448AB88D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -552,8 +559,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 5D9DA4C226B2BA2200DED0F6 /* Products */;
-					ProjectRef = 5D9DA4C126B2BA2200DED0F6 /* iOSSDKStreaming.xcodeproj */;
+					ProductGroup = A87EF03226C652D5008BF39F /* Products */;
+					ProjectRef = A87EF03126C652D5008BF39F /* iOSSDKStreaming.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -564,11 +571,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		5D9DA4C626B2BA2200DED0F6 /* iOSSDKStreaming.framework */ = {
+		A87EF03626C652D5008BF39F /* iOSSDKStreaming.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = iOSSDKStreaming.framework;
-			remoteRef = 5D9DA4C526B2BA2200DED0F6 /* PBXContainerItemProxy */;
+			remoteRef = A87EF03526C652D5008BF39F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -599,7 +606,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E0B9510A72601E5BD436910 /* [CP] Check Pods Manifest.lock */ = {
+		71960444667F8600448AB88D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C227F57E156A997A7C765AB2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -621,23 +645,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		85490D2B7EA02538EAD676C9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -645,6 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A87EF04126C68A81008BF39F /* UIView+Extension.swift in Sources */,
 				5DA7BC5F2677553900A3E292 /* LoginRequest.swift in Sources */,
 				5DA7BBEB267562A800A3E292 /* ViewController.swift in Sources */,
 				5DA7BC5C2677552500A3E292 /* LoginService.swift in Sources */,
@@ -853,7 +861,7 @@
 		};
 		5DA7BBF8267562AA00A3E292 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB3306033A0DA230C53507EB /* Pods-Many-to-many-call.debug.xcconfig */;
+			baseConfigurationReference = 63F08153C618A9E869488399 /* Pods-Many-to-many-call.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -879,7 +887,7 @@
 		};
 		5DA7BBF9267562AA00A3E292 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01DB8E86DB9E50996C92465C /* Pods-Many-to-many-call.release.xcconfig */;
+			baseConfigurationReference = F334F4315094B5F6C2CAE536 /* Pods-Many-to-many-call.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
