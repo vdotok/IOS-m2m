@@ -161,7 +161,9 @@ class GroupCallingView: UIView {
         speakerButton.isHidden = false
         cameraSwitch.isHidden = false
         speakerButton.isHidden = false
-        configureTimer()
+        if timer == nil {
+            configureTimer()
+        }
     }
     
     func loadViewFor(mediaType: SessionMediaType) {
