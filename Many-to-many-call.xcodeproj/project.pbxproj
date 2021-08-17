@@ -43,7 +43,6 @@
 		5DA2C29A2677A98100B6F36C /* CreateGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA2C2982677A98100B6F36C /* CreateGroupCell.swift */; };
 		5DA2C29B2677A98100B6F36C /* CreateGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA2C2992677A98100B6F36C /* CreateGroupCell.xib */; };
 		5DA7BBE7267562A800A3E292 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA7BBE6267562A800A3E292 /* AppDelegate.swift */; };
-		5DA7BBE9267562A800A3E292 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA7BBE8267562A800A3E292 /* SceneDelegate.swift */; };
 		5DA7BBEB267562A800A3E292 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA7BBEA267562A800A3E292 /* ViewController.swift */; };
 		5DA7BBEE267562A800A3E292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DA7BBEC267562A800A3E292 /* Main.storyboard */; };
 		5DA7BBF3267562AA00A3E292 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DA7BBF1267562AA00A3E292 /* LaunchScreen.storyboard */; };
@@ -156,7 +155,6 @@
 		5DA2C2992677A98100B6F36C /* CreateGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateGroupCell.xib; sourceTree = "<group>"; };
 		5DA7BBE3267562A800A3E292 /* Many-to-many-call.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Many-to-many-call.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA7BBE6267562A800A3E292 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5DA7BBE8267562A800A3E292 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5DA7BBEA267562A800A3E292 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5DA7BBED267562A800A3E292 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DA7BBF2267562AA00A3E292 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 				5DA7BC0D2675FD0C00A3E292 /* Service */,
 				5DA7BC032675FC7300A3E292 /* DataStore */,
 				5DA7BBE6267562A800A3E292 /* AppDelegate.swift */,
-				5DA7BBE8267562A800A3E292 /* SceneDelegate.swift */,
 				5DA7BBEA267562A800A3E292 /* ViewController.swift */,
 				5DA7BBEC267562A800A3E292 /* Main.storyboard */,
 				5DD9727426775D05007919AC /* Assets.xcassets */,
@@ -682,7 +679,6 @@
 				5DA2C2832677A62A00B6F36C /* CreateGroupResponse.swift in Sources */,
 				5DA7BC6E2677567000A3E292 /* SignupRequest.swift in Sources */,
 				5DA7BC742677594300A3E292 /* AllGroupService.swift in Sources */,
-				5DA7BBE9267562A800A3E292 /* SceneDelegate.swift in Sources */,
 				5DA7BC072675FCCD00A3E292 /* AuthenticationService.swift in Sources */,
 				5D20D785268C56E500B78BFE /* DeleteGroupRequest.swift in Sources */,
 				5D7CD5312677EC8C004799EA /* CreateGroupPopup.swift in Sources */,

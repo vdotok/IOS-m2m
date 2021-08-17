@@ -43,10 +43,10 @@ class GroupCallingView: UIView {
     @IBOutlet weak var speakerButton: UIButton!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var hangupButton: UIButton!
-    
     @IBOutlet weak var routePickerViewContainer: UIView!
-    
     var externalWindow: UIWindow!
+    var secondScreenView : UIView?
+    var externalLabel = UILabel()
     
     
     var users:[User]?
@@ -61,27 +61,21 @@ class GroupCallingView: UIView {
         super.awakeFromNib()
         addNotificationObserver()
         addRoutePicker()
+       
         configureCollectionView()
         connectedView.isHidden = true
         callStatus.isHidden = true
         localView.frame = CGRect(x: UIScreen.main.bounds.size.width - localView.frame.size.width + 1.1, y: UIScreen.main.bounds.size.height - localView.frame.size.height * 1.1, width: 120, height: 170)
-        checkForExistingScreenAndInitializeIfPresent()
+     //   checkForExistingScreenAndInitializeIfPresent()
     }
-    
-    
     
     func addNotificationObserver(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleScreenDidConnect(_:)), name: UIScreen.didConnectNotification , object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleScreenDidDisconnect(_:)), name: UIScreen.didConnectNotification , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleScreenDidDisconnect(_:)), name: UIScreen.didDisconnectNotification , object: nil)
         
     }
-    
-    
-    
-    
-    
     
     @IBAction func didTapSpeaker(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
@@ -236,6 +230,7 @@ class GroupCallingView: UIView {
         
     }
     
+    
 }
 
 extension GroupCallingView: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -331,14 +326,12 @@ extension GroupCallingView {
             x: gestureView.center.x + translation.x,
             y: gestureView.center.y + translation.y
         )
-        
         // 3
         gesture.setTranslation(.zero, in: localView)
         
         guard gesture.state == .ended else {
             return
         }
-        
         // 1
         let velocity = gesture.velocity(in: localView)
         let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
@@ -351,7 +344,6 @@ extension GroupCallingView {
             x: gestureView.center.x + (velocity.x * slideFactor),
             y: gestureView.center.y + (velocity.y * slideFactor)
         )
-        
         // 4
         finalPoint.x = min(max(finalPoint.x, 0), localView.bounds.width)
         finalPoint.y = min(max(finalPoint.y, 0), localView.bounds.height)
@@ -440,9 +432,10 @@ extension GroupCallingView {
 extension GroupCallingView{
     
     func addRoutePicker(){
-        let routePickerView = AVRoutePickerView()
+        let routePickerView = AVRoutePickerView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
         routePickerView.backgroundColor = UIColor.clear
         routePickerViewContainer.addSubview(routePickerView)
+        routePickerView.prioritizesVideoDevices = true
         routePickerView.fixInSuperView()
     }
     
@@ -455,24 +448,58 @@ extension GroupCallingView{
     }
     
     func setUpExternal(screen: UIScreen){
-        guard let stream = userStreams.first else {
-            return
-        }
-        let externalScreenBounds = screen.bounds
+        self.externalWindow = UIWindow(frame: screen.bounds)
         
-        self.externalWindow = UIWindow(frame: externalScreenBounds)
+        //windows require a root view controller
+        let viewcontroller = UIViewController()
         
-        stream.renderer.removeFromSuperview()
-        self.externalWindow.addSubview(stream.renderer)
-        stream.renderer.fixInMiddleOfSuperView()
-        self.externalWindow.isHidden = false
+        self.externalWindow.rootViewController = viewcontroller
+        
+        //tell the window which screen to use
+        self.externalWindow.screen = screen
+        
+        //set the dimensions for the view for the external screen so it fills the screen
+        secondScreenView = UIView(frame:self.externalWindow.frame)
+        self.externalWindow?.addSubview(secondScreenView!)
+
+        //add the view to the second screens window
+        guard let stream = userStreams.first?.renderer else {return}
+        stream.removeFromSuperview()
+        secondScreenView?.addSubview(stream)
+        stream.translatesAutoresizingMaskIntoConstraints = false
+//        stream.frame = CGRect(x: screen.bounds.midX - stream.bounds.midX, y: screen.bounds.midY - stream.bounds.midY, width: stream.bounds.width, height: stream.bounds.height)
+        NSLayoutConstraint.activate([
+            stream.trailingAnchor.constraint(equalTo: secondScreenView!.trailingAnchor),
+            stream.leadingAnchor.constraint(equalTo: secondScreenView!.leadingAnchor),
+            stream.topAnchor.constraint(equalTo: secondScreenView!.topAnchor),
+            stream.bottomAnchor.constraint(equalTo: secondScreenView!.bottomAnchor)
+        ])
+        
+        
+  
+        
+        //unhide the window
+        self.externalWindow?.isHidden = false
+        
+        //customised the view
+//        secondScreenView!.backgroundColor = UIColor.black
+//        //configure the label
+//        externalLabel.textAlignment = NSTextAlignment.center
+//        externalLabel.font = UIFont(name: "Helvetica", size: 50.0)
+//        externalLabel.frame = secondScreenView!.bounds
+//        externalLabel.text = "Hello"
+        
+        //add the label to the view
+        secondScreenView!.addSubview(externalLabel)
     }
     
     @objc  func handleScreenDidConnect(_ notification: Notification) {
         guard let newScreen = notification.object as? UIScreen else {
             return
         }
-        setUpExternal(screen: newScreen)
+        
+            self.setUpExternal(screen: newScreen)
+       
     }
     
     @objc   func handleScreenDidDisconnect(_ notification: Notification){
@@ -485,4 +512,119 @@ extension GroupCallingView{
     }
     
     
+}
+
+
+
+
+extension AVAudioSession {
+
+func ChangeAudioOutput(presenterViewController : UIViewController) {
+    let CHECKED_KEY = "checked"
+    let IPHONE_TITLE = "iPhone"
+    let HEADPHONES_TITLE = "Headphones"
+    let SPEAKER_TITLE = "Speaker"
+    let HIDE_TITLE = "Hide"
+    
+    var deviceAction = UIAlertAction()
+    var headphonesExist = false
+    
+    let currentRoute = self.currentRoute
+    
+    let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    for input in self.availableInputs!{
+        
+        switch input.portType  {
+        case AVAudioSession.Port.bluetoothA2DP, AVAudioSession.Port.bluetoothHFP, AVAudioSession.Port.bluetoothLE:
+            let action = UIAlertAction(title: input.portName, style: .default) { (action) in
+                do {
+                    // remove speaker if needed
+                    try self.overrideOutputAudioPort(AVAudioSession.PortOverride.none)
+                    
+                    // set new input
+                    try self.setPreferredInput(input)
+                } catch let error as NSError {
+                    print("audioSession error change to input: \(input.portName) with error: \(error.localizedDescription)")
+                }
+            }
+            
+            if currentRoute.outputs.contains(where: {return $0.portType == input.portType}){
+                action.setValue(true, forKey: CHECKED_KEY)
+            }
+            
+            optionMenu.addAction(action)
+            break
+            
+        case AVAudioSession.Port.builtInMic, AVAudioSession.Port.builtInReceiver:
+            deviceAction = UIAlertAction(title: IPHONE_TITLE, style: .default) { (action) in
+                do {
+                    // remove speaker if needed
+                    try self.overrideOutputAudioPort(AVAudioSession.PortOverride.none)
+                    
+                    // set new input
+                    try self.setPreferredInput(input)
+                } catch let error as NSError {
+                    print("audioSession error change to input: \(input.portName) with error: \(error.localizedDescription)")
+                }
+            }
+            
+            if currentRoute.outputs.contains(where: {return $0.portType == input.portType}){
+                deviceAction.setValue(true, forKey: CHECKED_KEY)
+            }
+            break
+            
+        case AVAudioSession.Port.headphones, AVAudioSession.Port.headsetMic:
+            headphonesExist = true
+            let action = UIAlertAction(title: HEADPHONES_TITLE, style: .default) { (action) in
+                do {
+                    // remove speaker if needed
+                    try self.overrideOutputAudioPort(AVAudioSession.PortOverride.none)
+                    
+                    // set new input
+                    try self.setPreferredInput(input)
+                } catch let error as NSError {
+                    print("audioSession error change to input: \(input.portName) with error: \(error.localizedDescription)")
+                }
+            }
+            
+            if currentRoute.outputs.contains(where: {return $0.portType == input.portType}){
+                action.setValue(true, forKey: CHECKED_KEY)
+            }
+            
+            optionMenu.addAction(action)
+            break
+        default:
+            break
+        }
+    }
+    
+    if !headphonesExist {
+        optionMenu.addAction(deviceAction)
+    }
+    
+    let speakerOutput = UIAlertAction(title: SPEAKER_TITLE, style: .default, handler: {
+        (alert: UIAlertAction!) -> Void in
+        
+        do {
+            try self.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
+        } catch let error as NSError {
+            print("audioSession error turning on speaker: \(error.localizedDescription)")
+        }
+    })
+    
+    if currentRoute.outputs.contains(where: {return $0.portType == AVAudioSession.Port.builtInSpeaker}){
+        speakerOutput.setValue(true, forKey: CHECKED_KEY)
+    }
+    
+    optionMenu.addAction(speakerOutput)
+    
+    
+    let cancelAction = UIAlertAction(title: HIDE_TITLE, style: .cancel, handler: {
+        (alert: UIAlertAction!) -> Void in
+        
+    })
+    optionMenu.addAction(cancelAction)
+    presenterViewController.present(optionMenu, animated: true, completion: nil)
+    
+ }
 }

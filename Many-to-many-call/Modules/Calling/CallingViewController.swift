@@ -81,6 +81,11 @@ public class CallingViewController: UIViewController {
         guard let groupCallingView = groupCallingView else {return}
         groupCallingView.updateDataSource(with: streams)
     }
+    
+    deinit {
+        groupCallingView = nil
+        print("calling view controller deinit")
+    }
 }
 
 extension CallingViewController {
@@ -146,7 +151,8 @@ extension CallingViewController: VideoDelegate {
     }
     
     func didTapMute(for baseSession: VTokBaseSession, state: AudioState) {
-        viewModel.mute(session: baseSession, state: state)
+//        viewModel.mute(session: baseSession, state: state)
+        AVAudioSession.sharedInstance().ChangeAudioOutput(presenterViewController: self)
     }
     
     func didTapEnd(for baseSession: VTokBaseSession) {
