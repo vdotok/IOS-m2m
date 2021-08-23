@@ -9,7 +9,7 @@ import UIKit
 import iOSSDKStreaming
 import AVKit
 
-protocol VideoDelegate: class {
+protocol VideoDelegate: AnyObject {
     func didTapVideo(for baseSession: VTokBaseSession, state: VideoState)
     func didTapMute(for baseSession: VTokBaseSession, state: AudioState)
     func didTapEnd(for baseSession: VTokBaseSession)
@@ -465,30 +465,21 @@ extension GroupCallingView{
         //add the view to the second screens window
         guard let stream = userStreams.first?.renderer else {return}
         stream.removeFromSuperview()
+        let frame = AVMakeRect(aspectRatio: stream.frame.size, insideRect: self.secondScreenView!.frame)
+        
+        stream.frame = frame
         secondScreenView?.addSubview(stream)
+       
         stream.translatesAutoresizingMaskIntoConstraints = false
-//        stream.frame = CGRect(x: screen.bounds.midX - stream.bounds.midX, y: screen.bounds.midY - stream.bounds.midY, width: stream.bounds.width, height: stream.bounds.height)
+
         NSLayoutConstraint.activate([
-            stream.trailingAnchor.constraint(equalTo: secondScreenView!.trailingAnchor),
-            stream.leadingAnchor.constraint(equalTo: secondScreenView!.leadingAnchor),
-            stream.topAnchor.constraint(equalTo: secondScreenView!.topAnchor),
-            stream.bottomAnchor.constraint(equalTo: secondScreenView!.bottomAnchor)
+            stream.heightAnchor.constraint(equalToConstant: stream.frame.height),
+            stream.widthAnchor.constraint(equalToConstant: stream.frame.width)
         ])
-        
-        
-  
+        stream.fixInMiddleOfSuperView()
         
         //unhide the window
         self.externalWindow?.isHidden = false
-        
-        //customised the view
-//        secondScreenView!.backgroundColor = UIColor.black
-//        //configure the label
-//        externalLabel.textAlignment = NSTextAlignment.center
-//        externalLabel.font = UIFont(name: "Helvetica", size: 50.0)
-//        externalLabel.frame = secondScreenView!.bounds
-//        externalLabel.text = "Hello"
-        
         //add the label to the view
         secondScreenView!.addSubview(externalLabel)
     }
