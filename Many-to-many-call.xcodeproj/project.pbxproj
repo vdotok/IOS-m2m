@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D1E188A26D382470032CCF4 /* TVBroadCast.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D1E188526D382470032CCF4 /* TVBroadCast.storyboard */; };
+		5D1E188B26D382470032CCF4 /* TVBroadCastRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E188626D382470032CCF4 /* TVBroadCastRouter.swift */; };
+		5D1E188C26D382470032CCF4 /* TVBroadCastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E188726D382470032CCF4 /* TVBroadCastViewController.swift */; };
+		5D1E188D26D382470032CCF4 /* TVBroadCastBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E188826D382470032CCF4 /* TVBroadCastBuilder.swift */; };
+		5D1E188E26D382470032CCF4 /* TVBroadCastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E188926D382470032CCF4 /* TVBroadCastViewModel.swift */; };
+		5D1E189326D383D00032CCF4 /* TVBroadcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E189126D383D00032CCF4 /* TVBroadcastCell.swift */; };
+		5D1E189426D383D00032CCF4 /* TVBroadcastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D1E189226D383D00032CCF4 /* TVBroadcastCell.xib */; };
 		5D20D782268C56CF00B78BFE /* EditGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */; };
 		5D20D785268C56E500B78BFE /* DeleteGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */; };
 		5D20D787268C570900B78BFE /* DeleteGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D786268C570900B78BFE /* DeleteGroupService.swift */; };
@@ -118,6 +125,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5D1E188526D382470032CCF4 /* TVBroadCast.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TVBroadCast.storyboard; sourceTree = "<group>"; };
+		5D1E188626D382470032CCF4 /* TVBroadCastRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVBroadCastRouter.swift; sourceTree = "<group>"; };
+		5D1E188726D382470032CCF4 /* TVBroadCastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVBroadCastViewController.swift; sourceTree = "<group>"; };
+		5D1E188826D382470032CCF4 /* TVBroadCastBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVBroadCastBuilder.swift; sourceTree = "<group>"; };
+		5D1E188926D382470032CCF4 /* TVBroadCastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVBroadCastViewModel.swift; sourceTree = "<group>"; };
+		5D1E189126D383D00032CCF4 /* TVBroadcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVBroadcastCell.swift; sourceTree = "<group>"; };
+		5D1E189226D383D00032CCF4 /* TVBroadcastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVBroadcastCell.xib; sourceTree = "<group>"; };
 		5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupRequest.swift; sourceTree = "<group>"; };
 		5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupRequest.swift; sourceTree = "<group>"; };
 		5D20D786268C570900B78BFE /* DeleteGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupService.swift; sourceTree = "<group>"; };
@@ -230,6 +244,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5D1E189026D383A70032CCF4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5D1E189126D383D00032CCF4 /* TVBroadcastCell.swift */,
+				5D1E189226D383D00032CCF4 /* TVBroadcastCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		5D7CD5342677FC71004799EA /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +267,7 @@
 		5D7CD5672678A955004799EA /* Calling */ = {
 			isa = PBXGroup;
 			children = (
+				5DB4C1DD26D381CE001F3775 /* AppleTv */,
 				5D7CD5692678ADCA004799EA /* Xib */,
 				5D7CD55C2678A950004799EA /* Calling.storyboard */,
 				5D7CD55D2678A950004799EA /* CallingRouter.swift */,
@@ -481,6 +505,19 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		5DB4C1DD26D381CE001F3775 /* AppleTv */ = {
+			isa = PBXGroup;
+			children = (
+				5D1E189026D383A70032CCF4 /* Cells */,
+				5D1E188526D382470032CCF4 /* TVBroadCast.storyboard */,
+				5D1E188626D382470032CCF4 /* TVBroadCastRouter.swift */,
+				5D1E188726D382470032CCF4 /* TVBroadCastViewController.swift */,
+				5D1E188826D382470032CCF4 /* TVBroadCastBuilder.swift */,
+				5D1E188926D382470032CCF4 /* TVBroadCastViewModel.swift */,
+			);
+			path = AppleTv;
+			sourceTree = "<group>";
+		};
 		A87EF02E26C652A6008BF39F /* Streaming */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,11 +629,13 @@
 				5D7CD56F2678AE29004799EA /* GroupCallingView.xib in Resources */,
 				5DA7BBEE267562A800A3E292 /* Main.storyboard in Resources */,
 				5D7CD5612678A950004799EA /* Calling.storyboard in Resources */,
+				5D1E188A26D382470032CCF4 /* TVBroadCast.storyboard in Resources */,
 				5D7CD57B2678B1E2004799EA /* VideoCell.xib in Resources */,
 				5DA2C29B2677A98100B6F36C /* CreateGroupCell.xib in Resources */,
 				5DA7BC8326775A3900A3E292 /* GroupCell.xib in Resources */,
 				5DD9727526775D05007919AC /* Assets.xcassets in Resources */,
 				5DA7BC3A2675FE6400A3E292 /* SignUp.storyboard in Resources */,
+				5D1E189426D383D00032CCF4 /* TVBroadcastCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,15 +691,18 @@
 				A87EF04126C68A81008BF39F /* UIView+Extension.swift in Sources */,
 				5DA7BC5F2677553900A3E292 /* LoginRequest.swift in Sources */,
 				5DA7BBEB267562A800A3E292 /* ViewController.swift in Sources */,
+				5D1E188D26D382470032CCF4 /* TVBroadCastBuilder.swift in Sources */,
 				5DA7BC5C2677552500A3E292 /* LoginService.swift in Sources */,
 				5DA7BC0B2675FCF300A3E292 /* AuthenticateRequest.swift in Sources */,
 				5D7CD5632678A950004799EA /* CallingViewController.swift in Sources */,
 				5DA2C2732677922E00B6F36C /* CreateGroupRouter.swift in Sources */,
 				5DA7BC2D2675FE0900A3E292 /* LoginRouter.swift in Sources */,
 				5D20D782268C56CF00B78BFE /* EditGroupRequest.swift in Sources */,
+				5D1E188E26D382470032CCF4 /* TVBroadCastViewModel.swift in Sources */,
 				5DA7BBE7267562A800A3E292 /* AppDelegate.swift in Sources */,
 				5D8BC0542678DB83001F1B9B /* IncomingCall.swift in Sources */,
 				5D7CD53D2677FE34004799EA /* IndigoButton.swift in Sources */,
+				5D1E188C26D382470032CCF4 /* TVBroadCastViewController.swift in Sources */,
 				5DA7BC712677589700A3E292 /* GroupResponse.swift in Sources */,
 				5DA2C2742677922E00B6F36C /* CreateGroupViewController.swift in Sources */,
 				5DA7BC59267754CD00A3E292 /* ProgresHud.swift in Sources */,
@@ -687,6 +729,7 @@
 				5DA2C2802677A61000B6F36C /* CreateGroupService.swift in Sources */,
 				5D20D787268C570900B78BFE /* DeleteGroupService.swift in Sources */,
 				5D7CD5642678A950004799EA /* CallingBuilder.swift in Sources */,
+				5D1E188B26D382470032CCF4 /* TVBroadCastRouter.swift in Sources */,
 				5DA7BC162675FD4500A3E292 /* ApiRequest.swift in Sources */,
 				5D83A8EC2678B68000F001DE /* Constants.swift in Sources */,
 				5DA7BC302675FE0900A3E292 /* LoginViewModel.swift in Sources */,
@@ -712,6 +755,7 @@
 				5D7CD57A2678B1E2004799EA /* VideoCell.swift in Sources */,
 				5DA7BC2E2675FE0900A3E292 /* LoginViewController.swift in Sources */,
 				5DA7BC492675FE8300A3E292 /* ChannelViewController.swift in Sources */,
+				5D1E189326D383D00032CCF4 /* TVBroadcastCell.swift in Sources */,
 				5DA7BC232675FDDC00A3E292 /* UserResponse.swift in Sources */,
 				5D20D789268C585500B78BFE /* EditGroupService.swift in Sources */,
 			);

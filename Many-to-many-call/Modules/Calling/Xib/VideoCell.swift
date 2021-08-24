@@ -15,6 +15,11 @@ class VideoCell: UICollectionViewCell {
             remoteView.clipsToBounds = true
         }
     }
+    @IBOutlet weak var selectedView: UIView! {
+        didSet {
+            selectedView.layer.cornerRadius = 20/2
+        }
+    }
     @IBOutlet weak var remoteName: UILabel!
     @IBOutlet weak var personAvatar: UIImageView!
 
@@ -32,11 +37,11 @@ class VideoCell: UICollectionViewCell {
         remoteName.text = nil
     }
     
-    func configure(with stream: UserStream, users: [User]?) {
+    func configure(with stream: UserStream, users: [User]?, isSelected: Bool) {
         
         guard let user = users, let currentUser = user.filter({$0.refID == stream.referenceID}).first else{return}
         remoteName.text = currentUser.fullName
-        
+
         switch stream.sessionMediaType {
         case .audioCall:
             remoteView.isHidden = true
@@ -54,6 +59,7 @@ class VideoCell: UICollectionViewCell {
                 stream.renderer.topAnchor.constraint(equalTo: self.remoteView.topAnchor),
                 stream.renderer.bottomAnchor.constraint(equalTo: self.remoteView.bottomAnchor)
             ])
+            selectedView.isHidden = isSelected ? false : true
             if let stateInformation = stream.stateInformation {
                 update(stateInformation: stateInformation)
             }

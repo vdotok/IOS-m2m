@@ -17,11 +17,6 @@ protocol VideoDelegate: AnyObject {
     func didTapSpeaker(baseSession: VTokBaseSession, state: SpeakerState)
 }
 
-
-
-
-
-
 class GroupCallingView: UIView {
     
     
@@ -47,7 +42,7 @@ class GroupCallingView: UIView {
     var externalWindow: UIWindow!
     var secondScreenView : UIView?
     var externalLabel = UILabel()
-    
+    var testScreen: UIScreen = UIScreen()
     
     var users:[User]?
     weak var delegate: VideoDelegate?
@@ -56,6 +51,7 @@ class GroupCallingView: UIView {
     private weak var timer: Timer?
     
     var userStreams: [UserStream]  = []
+    var selectedStreams: [UserStream] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -66,7 +62,6 @@ class GroupCallingView: UIView {
         connectedView.isHidden = true
         callStatus.isHidden = true
         localView.frame = CGRect(x: UIScreen.main.bounds.size.width - localView.frame.size.width + 1.1, y: UIScreen.main.bounds.size.height - localView.frame.size.height * 1.1, width: 120, height: 170)
-     //   checkForExistingScreenAndInitializeIfPresent()
     }
     
     func addNotificationObserver(){
@@ -76,6 +71,10 @@ class GroupCallingView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(handleScreenDidDisconnect(_:)), name: UIScreen.didDisconnectNotification , object: nil)
         
     }
+    @IBAction func didTapAirPlay(_ sender: UIButton) {
+        setUpExternal(screen: self.testScreen, streams: selectedStreams)
+    }
+
     
     @IBAction func didTapSpeaker(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
@@ -150,7 +149,6 @@ class GroupCallingView: UIView {
             cameraSwitch.isHidden = true
             speakerButton.isHidden = true
             cameraButton.isEnabled = false
-            
             setNames()
         case .ringing:
             cameraSwitch.isHidden = true
@@ -241,14 +239,26 @@ extension GroupCallingView: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoCell
-        cell.configure(with: userStreams[indexPath.row], users: users)
-        
-        
+        let streamId = userStreams[indexPath.row].referenceID
+        cell.configure(with: userStreams[indexPath.row], users: users, isSelected: checkStream(with: streamId))
         return cell
+        
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let stream = userStreams[indexPath.row]
+        if checkStream(with: stream.referenceID) {
+            self.selectedStreams = selectedStreams.filter({$0.referenceID != stream.referenceID})
+        } else {
+            self.selectedStreams.append(stream)
+        }
+ 
+        self.collectionView.reloadItems(at: [indexPath])
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
 
@@ -261,6 +271,13 @@ extension GroupCallingView: UICollectionViewDelegateFlowLayout {
 
 //MARK:- CollectionViewCell Dynamic Cell Size
 extension GroupCallingView {
+    
+    private func checkStream(with id: String) -> Bool {
+        guard !selectedStreams.isEmpty else {return false}
+     
+        return selectedStreams.contains(where: {$0.referenceID == id})
+        
+    }
     
     func getCellSize(index: Int) -> CGSize {
         
@@ -439,19 +456,12 @@ extension GroupCallingView{
         routePickerView.fixInSuperView()
     }
     
-    func checkForExistingScreenAndInitializeIfPresent(){
-        guard UIScreen.screens.count > 1 else {
-            return
-        }
-        let externalScreen = UIScreen.screens[1]
-        setUpExternal(screen: externalScreen)
-    }
-    
-    func setUpExternal(screen: UIScreen){
+    func setUpExternal(screen: UIScreen, streams: [UserStream]){
         self.externalWindow = UIWindow(frame: screen.bounds)
         
         //windows require a root view controller
-        let viewcontroller = UIViewController()
+        
+        let viewcontroller = TVBroadCastBuilder().build(with: nil, userStreams: streams)
         
         self.externalWindow.rootViewController = viewcontroller
         
@@ -459,38 +469,36 @@ extension GroupCallingView{
         self.externalWindow.screen = screen
         
         //set the dimensions for the view for the external screen so it fills the screen
-        secondScreenView = UIView(frame:self.externalWindow.frame)
-        self.externalWindow?.addSubview(secondScreenView!)
-
-        //add the view to the second screens window
-        guard let stream = userStreams.first?.renderer else {return}
-        stream.removeFromSuperview()
-        let frame = AVMakeRect(aspectRatio: stream.frame.size, insideRect: self.secondScreenView!.frame)
-        
-        stream.frame = frame
-        secondScreenView?.addSubview(stream)
-       
-        stream.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            stream.heightAnchor.constraint(equalToConstant: stream.frame.height),
-            stream.widthAnchor.constraint(equalToConstant: stream.frame.width)
-        ])
-        stream.fixInMiddleOfSuperView()
-        
+//        secondScreenView = UIView(frame:self.externalWindow.frame)
+//        self.externalWindow?.addSubview(secondScreenView!)
+//
+//        //add the view to the second screens window
+//        guard let stream = userStreams.first?.renderer else {return}
+//        stream.removeFromSuperview()
+//        let frame = AVMakeRect(aspectRatio: stream.frame.size, insideRect: self.secondScreenView!.frame)
+//
+//        stream.frame = frame
+//        secondScreenView?.addSubview(stream)
+//
+//        stream.translatesAutoresizingMaskIntoConstraints = false
+//
+//        NSLayoutConstraint.activate([
+//            stream.heightAnchor.constraint(equalToConstant: stream.frame.height),
+//            stream.widthAnchor.constraint(equalToConstant: stream.frame.width)
+//        ])
+//        stream.fixInMiddleOfSuperView()
+//
         //unhide the window
         self.externalWindow?.isHidden = false
         //add the label to the view
-        secondScreenView!.addSubview(externalLabel)
+//        secondScreenView!.addSubview(externalLabel)
     }
     
     @objc  func handleScreenDidConnect(_ notification: Notification) {
         guard let newScreen = notification.object as? UIScreen else {
             return
         }
-        
-            self.setUpExternal(screen: newScreen)
-       
+        self.testScreen = newScreen
     }
     
     @objc   func handleScreenDidDisconnect(_ notification: Notification){
