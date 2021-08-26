@@ -43,6 +43,7 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
     var player: AVAudioPlayer?
     var counter = 0
     var timer = Timer()
+    var isBusy: Bool = false
     
     init(router: CallingRouter, vtokSdk: VideoTalkSDK, participants: [Participant]? = nil, screenType: ScreenType, session: VTokBaseSession? = nil, users: [User]? = nil) {
         self.router = router
@@ -93,6 +94,7 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
         case loadAudioView
         case dismissCallView
         case updateView(session: VTokBaseSession)
+        
         case updateHangupButton(status: Bool)
     }
     
@@ -203,8 +205,17 @@ extension CallingViewModelImpl: SessionDelegate {
         case .missedCall:
             sessionMissed()
         case .hangup:
-            sessionHangup()
+            guard isBusy else {
+                sessionHangup()
+                return
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+                self?.sessionHangup()
+            }
         case .tryingToConnect:
+            output?(.updateView(session: session))
+        case .busy:
+            isBusy = true
             output?(.updateView(session: session))
         default:
             break

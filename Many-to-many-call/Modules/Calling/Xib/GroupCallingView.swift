@@ -160,6 +160,8 @@ class GroupCallingView: UIView {
             connectedState()
         case .rejected:
             callStatus.text = "Rejected"
+        case .busy:
+            callStatus.text = "All users are busy"
             
         default:
             break
