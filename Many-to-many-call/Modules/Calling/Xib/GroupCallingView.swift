@@ -204,7 +204,8 @@ class GroupCallingView: UIView {
     }
     
     func updateDataSource(with streams: [UserStream]) {
-        userStreams = streams
+        let remoteStreams = streams.filter({$0.streamDirection != .outgoing})
+        userStreams = remoteStreams
         collectionView.reloadData()
         DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: { [weak self] in
             self?.cameraButton.isEnabled = true
