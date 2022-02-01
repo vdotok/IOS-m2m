@@ -123,6 +123,7 @@ extension CreateGroupViewModelImpl {
         let index = selectedItems.firstIndex(of: id)
         selectedItems.remove(at: index!)
     }
+    
     func addUser(userId:Int, row: Int) {
         if selectedItems.contains(userId) {
            deleteUser(id: userId)
@@ -137,7 +138,6 @@ extension CreateGroupViewModelImpl {
     func check(id: Int) -> Bool {
         selectedItems.contains(id) ? false : true
     }
-    
     
     func createGroup(with title: String) {
         
