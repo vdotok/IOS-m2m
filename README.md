@@ -16,10 +16,11 @@ It’s recommended to install Xcode from **App Store**.
 
 ### Installing Cocoapods
 Open **Terminal** and type command `pod --version` and hit **Enter**. 
+
 If command is not found then you don’t have Cocoapods installed on your system. To install Cocoapods, follow the below steps:
 #### Installing Cocoapods
 
-* Type the following command in Terminal `sudo gem install cocoapods` and hit **Enter**
+* Type the following command in **Terminal** `sudo gem install cocoapods` and hit **Enter**
 * After installation is complete, type command `pod --version` and hit **Enter** to confirm installation is successful
 
 ### Project Signup and Project ID
@@ -34,7 +35,6 @@ Register at [VdoTok HomePage](https://vdotok.com) to get **Authentication Token*
 *	After cloning is complete, go to **Demo project’s root directory** by typing `cd path_to_ 		cloned_project` and hit **Enter**
 *	Once inside the project’s root directory type `ls` (LS in small letters) and hit **Enter**. You 	should be able to see a file named **Podfile**
 *	Type command `pod install` > hit **Enter** and wait until the process is complete
-*	Open .xcworkspace file by double clicking it
 
 ### Updating  Project ID and Authentication Token
 *	Get **Project ID** and **Authentication Token** from [Admin Panel](https://userpanel.vdotok.com/login)
