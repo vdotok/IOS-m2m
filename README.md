@@ -49,6 +49,6 @@ To run on a real device:
 * Connect your device with MacBook
 * Select your device from the dropdown menu in Xcode
 
-For details on how to run application on a real device, please [click here] (https://codewithchris.com/deploy-your-app-on-an-iphone/) to follow instructions. 
+For details on how to run application on a real device, please [click here](https://codewithchris.com/deploy-your-app-on-an-iphone/) to follow instructions. 
 
 	     
