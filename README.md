@@ -6,12 +6,12 @@ iOSSDKStreaming-m2m Audio/Video Call
 ### Requirements
 ##### System Requirements
 * OS X 11.0 or later
-* 8GB of ram memory
+* 8GB of RAM memory
    
 ##### Development Requirements
 * Xcode 12+
 * [Click here](https://www.freecodecamp.org/news/how-to-download-and-install-xcode/) to follow instructions on downloading and installation of Xcode on your device.    
-It’s recommended to install Xcode from App Store.
+It’s recommended to install Xcode from **App Store**.
 
 
 ### Installing Cocoapods
@@ -31,23 +31,24 @@ Register at [VdoTok HomePage](https://vdotok.com) to get **Authentication Token*
 *	Open **Terminal**
 *	Go to Desktop **Directory** by typing `cd Desktop` and hit **Enter**
 *	And then type `git clone paste_copied_ url` and hit **Enter**
-*	After cloning is complete, go to **Demo project’s root directory** by typing `cd path_to_ cloned_project` and hit **Enter**
-*	Once inside the project’s root directory type `ls` (LS in small letters) and hit **Enter**. You should be able to see a file named **Podfile**
-*	Type command `pod install` hit **Enter** and wait until the process is complete
+*	After cloning is complete, go to **Demo project’s root directory** by typing `cd path_to_ 		cloned_project` and hit **Enter**
+*	Once inside the project’s root directory type `ls` (LS in small letters) and hit **Enter**. You 	should be able to see a file named **Podfile**
+*	Type command `pod install` > hit **Enter** and wait until the process is complete
 *	Open .xcworkspace file by double clicking it
 
 ### Updating  Project ID and Authentication Token
-Get **Project ID** and **Authentication Token** from [Admin Panel](https://userpanel.vdotok.com/login)
-Open **.xcworkspace** file in Xcode.
-In struct AuthenticationConstants replace the values for **PROJECTID**  and **AUTHTOKEN** with your values
+*	Get **Project ID** and **Authentication Token** from [Admin Panel](https://userpanel.vdotok.com/login)
+*	Double-click to open **.xcworkspace** file in Xcode
+*	In struct AuthenticationConstants replace the values for **PROJECTID**  and **AUTHTOKEN** with          	your values
 
 
 ### Building On Device
-*iOSSDKStreaming does not work for simulator*
+*Please be noted that iOSSDKStreaming does not work for iOS Simulator*
 
 To run on a real device:
-* Connect your device with MacBook
-* Select your device from the dropdown menu in Xcode
+
+  * Connect your device with MacBook
+  * Select your device from the dropdown menu in Xcode
 
 For details on how to run application on a real device, please [click here](https://codewithchris.com/deploy-your-app-on-an-iphone/) to follow instructions. 
 
