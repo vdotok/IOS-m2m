@@ -1,5 +1,5 @@
 # IOS-m2m
-iOSSDKStreaming-m2m
+iOSSDKStreaming-m2m Audio/Video Call
 
 ## Installation
 
