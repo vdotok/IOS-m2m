@@ -22,6 +22,11 @@ public class CallingViewController: UIViewController {
         configureAppearance()
         bindViewModel()
         viewModel.viewModelDidLoad()
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
+    
+    deinit {
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     override public func viewWillAppear(_ animated: Bool) {
