@@ -210,6 +210,8 @@ class GroupCallingView: UIView {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: { [weak self] in
             self?.cameraButton.isEnabled = true
         })
+        guard let localStream = streams.filter({$0.streamDirection != .incoming}).first else {return}
+        configureLocal(view: localStream.renderer)
         
     }
 
