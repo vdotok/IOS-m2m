@@ -18,20 +18,20 @@ class ChannelRouter {
 }
 
 extension ChannelRouter {
-    func moveToCalling(sdk: VideoTalkSDK, particinats: [Participant], users: [User] ) {
-        let builder = CallingBuilder().build(with: self.navigationController, vtokSdk: sdk, participants: particinats, screenType: .videoView, contact: users)
+    func moveToCalling(sdk: VideoTalkSDK, group: Group, users: [User] ) {
+        let builder = CallingBuilder().build(with: self.navigationController, vtokSdk: sdk, group: group, screenType: .videoView, contact: users)
         builder.modalPresentationStyle = .fullScreen
         navigationController?.present(builder, animated: true, completion: nil)
     }
     
     func moveToIncomingCall(sdk: VideoTalkSDK, baseSession: VTokBaseSession, users: [User]) {
-        let builder = CallingBuilder().build(with: self.navigationController, vtokSdk: sdk, participants: nil, screenType: .incomingCall, session: baseSession, contact: users)
+        let builder = CallingBuilder().build(with: self.navigationController, vtokSdk: sdk, group: nil, screenType: .incomingCall, session: baseSession, contact: users)
         builder.modalPresentationStyle = .fullScreen
         navigationController?.present(builder, animated: true, completion: nil)
     }
     
-    func moveToAudio(sdk: VideoTalkSDK, participants: [Participant], users: [User]) {
-        let builder = CallingBuilder().build(with: self.navigationController, vtokSdk: sdk, participants: participants, screenType: .audioView, contact: users)
+    func moveToAudio(sdk: VideoTalkSDK, group: Group, users: [User]) {
+        let builder = CallingBuilder().build(with: self.navigationController, vtokSdk: sdk, group: group, screenType: .audioView, contact: users)
         builder.modalPresentationStyle = .fullScreen
         navigationController?.present(builder, animated: true, completion: nil)
     }

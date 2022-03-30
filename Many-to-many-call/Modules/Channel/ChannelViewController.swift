@@ -229,12 +229,12 @@ extension ChannelViewController: UISearchBarDelegate {
 }
 
 extension ChannelViewController: GroupCallDelegate {
-    func didTapAudio(participants: [Participant]) {
-        viewModel.moveToAudio(users: participants)
+    func didTapAudio(group: Group) {
+        viewModel.moveToAudio(group: group)
     }
     
-    func didTapVideo(participants: [Participant]) {
-        viewModel.moveToVideo(users: participants)
+    func didTapVideo(group: Group) {
+        viewModel.moveToVideo(group: group)
     }
   
 }

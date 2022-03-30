@@ -37,7 +37,7 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
     private let router: CallingRouter
     var output: CallingViewModelOutput?
     var vtokSdk: VideoTalkSDK?
-    var participants: [Participant]?
+    var group: Group?
     var screenType: ScreenType
     var session: VTokBaseSession?
     var users: [User]?
@@ -46,10 +46,10 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
     var timer = Timer()
     var isBusy: Bool = false
     
-    init(router: CallingRouter, vtokSdk: VideoTalkSDK, participants: [Participant]? = nil, screenType: ScreenType, session: VTokBaseSession? = nil, users: [User]? = nil) {
+    init(router: CallingRouter, vtokSdk: VideoTalkSDK, group: Group? = nil, screenType: ScreenType, session: VTokBaseSession? = nil, users: [User]? = nil) {
         self.router = router
         self.vtokSdk = vtokSdk
-        self.participants = participants
+        self.group = group
         self.screenType = screenType
         self.session = session
         self.users = users
@@ -103,15 +103,16 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
         guard let user = VDOTOKObject<UserResponse>().getData(),
               let refID = user.refID
         else {return}
-        guard let participents = participants else {return}
-        let participantsRefIds = participents.map({$0.refID}).filter({$0 != user.refID })
+        guard let group = group else {return}
+        let customData = SessionCustomData(calleName: user.fullName, groupName: group.groupTitle, groupAutoCreatedValue: "\(group.autoCreated)")
+        let participantsRefIds = group.participants.map({$0.refID}).filter({$0 != user.refID })
         let requestId = getRequestId()
         let baseSession = VTokBaseSessionInit(from: refID,
                                               to: participantsRefIds,
                                               requestID: requestId,
                                               sessionUUID: requestId,
                                               sessionMediaType: sessionMediaType,
-                                              callType: .manytomany, connectedUsers: [])
+                                              callType: .manytomany,data: customData)
         output?(.loadView(mediaType: sessionMediaType))
         vtokSdk?.initiate(session: baseSession, sessionDelegate: self)
         callHangupHandling()

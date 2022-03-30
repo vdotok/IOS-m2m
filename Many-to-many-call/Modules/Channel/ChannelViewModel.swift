@@ -32,8 +32,8 @@ protocol ChannelViewModelInput {
     func fetchGroups()
     func subscribe(group: Group)
     func itemAt(row: Int) -> TempGroup
-    func moveToVideo(users: [Participant])
-    func moveToAudio(users: [Participant])
+    func moveToVideo(group: Group)
+    func moveToAudio(group: Group)
     func deleteGroup(with id: Int)
     func editGroup(with title: String, id: Int)
     func logout()
@@ -114,14 +114,14 @@ class ChannelViewModelImpl: ChannelViewModel, ChannelViewModelInput {
 
 extension ChannelViewModelImpl {
     
-    func moveToVideo(users: [Participant]) {
+    func moveToVideo(group: Group) {
         guard let sdk = vtokSdk else {return}
-        router.moveToCalling(sdk: sdk, particinats: users, users: contacts)
+        router.moveToCalling(sdk: sdk, group: group, users: contacts)
     }
     
-    func moveToAudio(users: [Participant]) {
+    func moveToAudio(group: Group) {
         guard let sdk = vtokSdk else {return}
-        router.moveToAudio(sdk: sdk, participants: users, users: contacts)
+        router.moveToAudio(sdk: sdk, group: group, users: contacts)
     }
     
     
