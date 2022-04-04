@@ -225,6 +225,13 @@ extension CallingViewModelImpl: SessionDelegate {
         case .busy:
             isBusy = true
             output?(.updateView(session: session))
+        case.suspendedByProvider:
+            sessionHangup()
+        case .insufficientBalance:
+            output?(.updateView(session: session))
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+                self?.sessionHangup()
+            }
         default:
             break
         }

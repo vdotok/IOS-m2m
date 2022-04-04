@@ -146,6 +146,8 @@ class GroupCallingView: UIView {
             callStatus.text = "Rejected"
         case .busy:
             callStatus.text = "All users are busy"
+        case .insufficientBalance:
+            callStatus.text = "insufficient funds.."
             
         default:
             break
