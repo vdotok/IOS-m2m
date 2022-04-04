@@ -240,49 +240,7 @@ extension CallingViewModelImpl: SessionDelegate {
     func sessionTimeDidUpdate(with value: String) {
         
     }
-    
-//    func configureLocalViewFor(session: VTokBaseSession, renderer: UIView) {
-//        output?(.configureLocal(view: renderer, session: session))
-//    }
-//
-//    func configureRemoteViews(for session: VTokBaseSession, with streams: [UserStream]) {
-//        output?(.configureRemote(streams: streams))
-//    }
-//
-//    func stateDidUpdate(for session: VTokBaseSession) {
-//        self.session = session
-//        switch session.state {
-//        case .ringing:
-//            output?(.updateView(session: session))
-//        case .connected:
-//          didConnect()
-//        case .rejected:
-//          sessionReject()
-//        case .missedCall:
-//            sessionMissed()
-//        case .hangup:
-//            guard isBusy else {
-//                sessionHangup()
-//                return
-//            }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-//                self?.sessionHangup()
-//            }
-//        case .tryingToConnect:
-//            output?(.updateView(session: session))
-//        case .busy:
-//            isBusy = true
-//            output?(.updateView(session: session))
-//        default:
-//            break
-//        }
-//    }
-//
-//    func didGetPublicUrl(for session: VTokBaseSession, with url: String) {
-//
-//    }
-    
-    
+
 }
 
 extension CallingViewModelImpl {
