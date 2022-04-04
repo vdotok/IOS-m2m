@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol GroupCallDelegate: class {
-    func didTapAudio(participants: [Participant])
-    func didTapVideo(participants: [Participant])
+protocol GroupCallDelegate: AnyObject {
+    func didTapAudio(group: Group)
+    func didTapVideo(group: Group)
 }
 
 class GroupCell: UITableViewCell {
@@ -27,12 +27,12 @@ class GroupCell: UITableViewCell {
     
     @IBAction func didTapAudio(_ sender: UIButton) {
         guard let group = group else {return}
-        delegate?.didTapAudio(participants: group.participants)
+        delegate?.didTapAudio(group: group)
     }
     
     @IBAction func didTapVideo(_ sender: UIButton) {
         guard let group = group else {return}
-        delegate?.didTapVideo(participants: group.participants)
+        delegate?.didTapVideo(group: group)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

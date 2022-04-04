@@ -37,7 +37,7 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
     private let router: CallingRouter
     var output: CallingViewModelOutput?
     var vtokSdk: VideoTalkSDK?
-    var participants: [Participant]?
+    var group: Group?
     var screenType: ScreenType
     var session: VTokBaseSession?
     var users: [User]?
@@ -46,10 +46,10 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
     var timer = Timer()
     var isBusy: Bool = false
     
-    init(router: CallingRouter, vtokSdk: VideoTalkSDK, participants: [Participant]? = nil, screenType: ScreenType, session: VTokBaseSession? = nil, users: [User]? = nil) {
+    init(router: CallingRouter, vtokSdk: VideoTalkSDK, group: Group? = nil, screenType: ScreenType, session: VTokBaseSession? = nil, users: [User]? = nil) {
         self.router = router
         self.vtokSdk = vtokSdk
-        self.participants = participants
+        self.group = group
         self.screenType = screenType
         self.session = session
         self.users = users
@@ -103,15 +103,16 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
         guard let user = VDOTOKObject<UserResponse>().getData(),
               let refID = user.refID
         else {return}
-        guard let participents = participants else {return}
-        let participantsRefIds = participents.map({$0.refID}).filter({$0 != user.refID })
+        guard let group = group else {return}
+        let customData = SessionCustomData(calleName: user.fullName, groupName: group.groupTitle, groupAutoCreatedValue: "\(group.autoCreated)")
+        let participantsRefIds = group.participants.map({$0.refID}).filter({$0 != user.refID })
         let requestId = getRequestId()
         let baseSession = VTokBaseSessionInit(from: refID,
                                               to: participantsRefIds,
                                               requestID: requestId,
                                               sessionUUID: requestId,
                                               sessionMediaType: sessionMediaType,
-                                              callType: .manytomany, connectedUsers: [])
+                                              callType: .manytomany,data: customData)
         output?(.loadView(mediaType: sessionMediaType))
         vtokSdk?.initiate(session: baseSession, sessionDelegate: self)
         callHangupHandling()
@@ -224,6 +225,13 @@ extension CallingViewModelImpl: SessionDelegate {
         case .busy:
             isBusy = true
             output?(.updateView(session: session))
+        case.suspendedByProvider:
+            sessionHangup()
+        case .insufficientBalance:
+            output?(.updateView(session: session))
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+                self?.sessionHangup()
+            }
         default:
             break
         }
@@ -232,49 +240,7 @@ extension CallingViewModelImpl: SessionDelegate {
     func sessionTimeDidUpdate(with value: String) {
         
     }
-    
-//    func configureLocalViewFor(session: VTokBaseSession, renderer: UIView) {
-//        output?(.configureLocal(view: renderer, session: session))
-//    }
-//
-//    func configureRemoteViews(for session: VTokBaseSession, with streams: [UserStream]) {
-//        output?(.configureRemote(streams: streams))
-//    }
-//
-//    func stateDidUpdate(for session: VTokBaseSession) {
-//        self.session = session
-//        switch session.state {
-//        case .ringing:
-//            output?(.updateView(session: session))
-//        case .connected:
-//          didConnect()
-//        case .rejected:
-//          sessionReject()
-//        case .missedCall:
-//            sessionMissed()
-//        case .hangup:
-//            guard isBusy else {
-//                sessionHangup()
-//                return
-//            }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-//                self?.sessionHangup()
-//            }
-//        case .tryingToConnect:
-//            output?(.updateView(session: session))
-//        case .busy:
-//            isBusy = true
-//            output?(.updateView(session: session))
-//        default:
-//            break
-//        }
-//    }
-//
-//    func didGetPublicUrl(for session: VTokBaseSession, with url: String) {
-//
-//    }
-    
-    
+
 }
 
 extension CallingViewModelImpl {

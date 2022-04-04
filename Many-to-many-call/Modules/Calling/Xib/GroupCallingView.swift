@@ -40,6 +40,7 @@ class GroupCallingView: UIView {
     @IBOutlet weak var speakerButton: UIButton!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var hangupButton: UIButton!
+    @IBOutlet weak var groupTitle: UILabel!
     var users:[User]?
     weak var delegate: VideoDelegate?
     var session: VTokBaseSession?
@@ -95,13 +96,13 @@ class GroupCallingView: UIView {
     func updateAudioVideoview(for session: VTokBaseSession) {
         
         self.session = session
-      
         switch session.sessionMediaType {
         case .audioCall:
             titleLable.text = "You are audio calling with"
             localView.isHidden = true
             cameraSwitch.isHidden = true
             cameraButton.isHidden = true
+            
         case .videoCall:
             titleLable.text = "You are video calling with"
             localView.isHidden = false
@@ -120,6 +121,7 @@ class GroupCallingView: UIView {
     
     func updateView(for session: VTokBaseSession) {
       
+        groupTitle.text = session.data?.groupName
         callStatus.isHidden = false
         tryingStack.isHidden = false
         speakerButton.isHidden = true
@@ -144,6 +146,8 @@ class GroupCallingView: UIView {
             callStatus.text = "Rejected"
         case .busy:
             callStatus.text = "All users are busy"
+        case .insufficientBalance:
+            callStatus.text = "insufficient funds.."
             
         default:
             break
