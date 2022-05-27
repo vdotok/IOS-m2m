@@ -142,8 +142,6 @@ extension CallingViewModelImpl {
         case .videoCall:
             output?(.loadView(mediaType: .videoCall))
             output?(.updateVideoView(session: session))
-        default:
-            break
         }
         output?(.updateHangupButton(status: false))
         vtokSdk?.accept(session: session)
