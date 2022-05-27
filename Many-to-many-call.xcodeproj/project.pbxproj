@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C49155E8E10F990B6E815E1 /* Pods_Many_to_many_call.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C87C828D00429E782C9E14 /* Pods_Many_to_many_call.framework */; };
+		42FD895FCB7687624DB41926 /* Pods_Many_to_many_call.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E63F1B3A3FFB4BAF8F59D25 /* Pods_Many_to_many_call.framework */; };
 		5D20D782268C56CF00B78BFE /* EditGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */; };
 		5D20D785268C56E500B78BFE /* DeleteGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */; };
 		5D20D787268C570900B78BFE /* DeleteGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D786268C570900B78BFE /* DeleteGroupService.swift */; };
@@ -104,8 +104,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		29C87C828D00429E782C9E14 /* Pods_Many_to_many_call.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Many_to_many_call.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		53B14FA40257738ADC6B1871 /* Pods-Many-to-many-call.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.debug.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.debug.xcconfig"; sourceTree = "<group>"; };
+		1E63F1B3A3FFB4BAF8F59D25 /* Pods_Many_to_many_call.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Many_to_many_call.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBA743A06DCE91E0DA42483 /* Pods-Many-to-many-call.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.release.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.release.xcconfig"; sourceTree = "<group>"; };
+		5866B4109ACAB358B932BDAC /* Pods-Many-to-many-call.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.debug.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.debug.xcconfig"; sourceTree = "<group>"; };
 		5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupRequest.swift; sourceTree = "<group>"; };
 		5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupRequest.swift; sourceTree = "<group>"; };
 		5D20D786268C570900B78BFE /* DeleteGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupService.swift; sourceTree = "<group>"; };
@@ -188,7 +189,6 @@
 		5DA7BC8626775AB900A3E292 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		5DA7BC8A26775C9E00A3E292 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5DD9727426775D05007919AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EE66EFA637B92B3D762E35C0 /* Pods-Many-to-many-call.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.release.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C49155E8E10F990B6E815E1 /* Pods_Many_to_many_call.framework in Frameworks */,
+				42FD895FCB7687624DB41926 /* Pods_Many_to_many_call.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +285,7 @@
 				5DA7BBE5267562A800A3E292 /* Many-to-many-call */,
 				5DA7BBE4267562A800A3E292 /* Products */,
 				B6FB81162196AF1941014299 /* Pods */,
-				A42F61D8D376C9020DC937C7 /* Frameworks */,
+				CE14389434F608F6897C0167 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -461,21 +461,21 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		A42F61D8D376C9020DC937C7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				29C87C828D00429E782C9E14 /* Pods_Many_to_many_call.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		B6FB81162196AF1941014299 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				53B14FA40257738ADC6B1871 /* Pods-Many-to-many-call.debug.xcconfig */,
-				EE66EFA637B92B3D762E35C0 /* Pods-Many-to-many-call.release.xcconfig */,
+				5866B4109ACAB358B932BDAC /* Pods-Many-to-many-call.debug.xcconfig */,
+				3CBA743A06DCE91E0DA42483 /* Pods-Many-to-many-call.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE14389434F608F6897C0167 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E63F1B3A3FFB4BAF8F59D25 /* Pods_Many_to_many_call.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,12 +485,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DA7BBF7267562AA00A3E292 /* Build configuration list for PBXNativeTarget "Many-to-many-call" */;
 			buildPhases = (
-				AC2816EA8A47D850FF4176A8 /* [CP] Check Pods Manifest.lock */,
+				10CDA539777F8E29EA7E917D /* [CP] Check Pods Manifest.lock */,
 				5DA7BBDF267562A800A3E292 /* Sources */,
 				5DA7BBE0267562A800A3E292 /* Frameworks */,
 				5DA7BBE1267562A800A3E292 /* Resources */,
 				5D63EB1E26875CC50094DA42 /* Embed Frameworks */,
-				776B92A808295C60A8C85763 /* [CP] Embed Pods Frameworks */,
+				77FBD6CD68CD505754AC2C48 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -560,24 +560,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		776B92A808295C60A8C85763 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AC2816EA8A47D850FF4176A8 /* [CP] Check Pods Manifest.lock */ = {
+		10CDA539777F8E29EA7E917D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -597,6 +580,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77FBD6CD68CD505754AC2C48 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -814,13 +814,13 @@
 		};
 		5DA7BBF8267562AA00A3E292 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53B14FA40257738ADC6B1871 /* Pods-Many-to-many-call.debug.xcconfig */;
+			baseConfigurationReference = 5866B4109ACAB358B932BDAC /* Pods-Many-to-many-call.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_TEAM = 2XMPHHJW2J;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -832,7 +832,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.norgic.ios.many-to-many";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -841,13 +840,13 @@
 		};
 		5DA7BBF9267562AA00A3E292 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE66EFA637B92B3D762E35C0 /* Pods-Many-to-many-call.release.xcconfig */;
+			baseConfigurationReference = 3CBA743A06DCE91E0DA42483 /* Pods-Many-to-many-call.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_TEAM = 2XMPHHJW2J;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -859,7 +858,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.norgic.ios.many-to-many";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
