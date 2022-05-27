@@ -12,9 +12,9 @@ struct UserResponse: Codable {
     let message: String
     let processTime: Int?
     let refID: String?
-    let mediaServerMap: ServerMap
+    let mediaServerMap: ServerMap?
     let status, userID: Int?
-    let messagingServerMap: ServerMap
+    let messagingServerMap: ServerMap?
     
     
     enum CodingKeys: String, CodingKey {
