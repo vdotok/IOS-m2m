@@ -57,7 +57,7 @@ extension APIRequest {
         let fakeUrl = URL(fileURLWithPath: "")
         guard let baseUrl = URL(string: Configurations.scheme + "://" + AuthenticationConstants.HOST + "/" +  Configurations.apiVersion),
               let component = URLComponents(url: baseUrl.appendingPathComponent(getPath()), resolvingAgainstBaseURL: false), var url = component.url else {
-            print("Unable to create URL components")
+//            print("Unable to create URL components")
             return fakeUrl
         }
         

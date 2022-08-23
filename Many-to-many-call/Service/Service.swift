@@ -26,7 +26,7 @@ protocol Service {
 /// A concrete implementation of Service class responsible for getting a Network resource
 final class NetworkService: Service {
     func get(request: APIRequest, completion: @escaping (Result<Data, Error>) -> Void) {
-        print("API: \(request.getPath())")
+       // print("API: \(request.getPath())")
         let request = request.request()
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -42,13 +42,13 @@ final class NetworkService: Service {
     }
     
     func post(request: APIRequest, completion: @escaping (Result<Data,Error>) -> Void) {
-        print("API: \(request.getPath())")
-        print("Sending Params: \(String(describing: String(data: request.getBody() ?? Data(), encoding: .utf8)))")
+       // print("API: \(request.getPath())")
+       // print("Sending Params: \(String(describing: String(data: request.getBody() ?? Data(), encoding: .utf8)))")
         let request = request.request()
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
             if let response = response {
-                print(response)
+               // print(response)
             }
             guard let data = data else {
                 completion(.failure(ServiceError.noData))
