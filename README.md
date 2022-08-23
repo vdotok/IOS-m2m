@@ -5,7 +5,7 @@ iOSSDKStreaming-m2m Audio/Video Call
 
 ### Requirements
 ##### System Requirements
-* OS X 11.0 or later
+* MacOS as compatible with xcode version
 * 8GB of RAM memory
    
 ##### Development Requirements
@@ -26,7 +26,7 @@ If command is not found then you don’t have Cocoapods installed on your system
 Register at [VdoTok HomePage](https://vdotok.com) to get **TENANT TESTING SERVER** and **PROJECT ID**
 
 ### Code Setup
-*	Click on **Code** button 
+*	On VdoTok Github repo,click on **Code** button 
 *	From HTTPS section copy **repo URL**
 *	Open **Terminal**
 *	Go to Desktop **Directory** by typing `cd Desktop` and hit **Enter**
@@ -36,6 +36,10 @@ Register at [VdoTok HomePage](https://vdotok.com) to get **TENANT TESTING SERVER
 *	Type command `pod install` > hit **Enter** and wait until the process is complete
 *  	Once the process is completed it should look like following
 <img width="500" alt="Screenshot 2022-08-16 at 12 11 20 PM" src="https://user-images.githubusercontent.com/111276411/185384051-692719f2-f478-40c3-b499-4ebf4428719a.png">
+
+*    If you face issue below,execute this command in terminal `gem install --user-install ffi -- --enable-libffi-alloc` ,then run `pod intall` 
+      
+<img width="500" alt="Screen Shot 2022-08-22 at 5 10 37 PM" src="https://user-images.githubusercontent.com/111276411/186087301-81952093-eabf-4c3a-85f9-21f34dbd9b3f.png">
 
 
 ### Updating  Project ID and Authentication Token
@@ -47,9 +51,9 @@ Register at [VdoTok HomePage](https://vdotok.com) to get **TENANT TESTING SERVER
 *Please be noted that iOSSDKStreaming does not work for iOS Simulator*
 
 To run on a real device:
-
+  * Select your Team and setup your bundle identifier like `com.company.appname` for all the targets
   * Connect your device with MacBook
-  * Select your device from the dropdown menu in Xcode
+  * Select your device from the dropdown menu in Xcode, click on play button on xcode toolbar
 
 For details on how to run application on a real device, please [click here](https://codewithchris.com/deploy-your-app-on-an-iphone/) to follow instructions. 
 
