@@ -45,7 +45,7 @@ Register at [VdoTok HomePage](https://vdotok.com) to get **TENANT TESTING SERVER
 ### Updating  Project ID and Authentication Token
 *  Get **Project ID** and **TENANT TESTING SERVER** from [Admin Panel](https://userpanel.vdotok.com/login)
 *  Double-click to open **.xcworkspace file** in Xcode
-*  In struct AuthenticationConstants (iOS-many2many -> common -> constants), replace the values for **PROJECTID** and **TENANT TESTING SERVER** with your values
+*  In struct AuthenticationConstants (iOS-many2many -> common -> constants), replace the values for **PROJECTID** and **TENANTSERVER** with your values
 
 ### Building On Device
 *Please be noted that iOSSDKStreaming does not work for iOS Simulator*
