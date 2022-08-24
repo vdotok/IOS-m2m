@@ -87,21 +87,9 @@
 		5DA7BC8326775A3900A3E292 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA7BC8126775A3900A3E292 /* GroupCell.xib */; };
 		5DA7BC8726775AB900A3E292 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA7BC8626775AB900A3E292 /* Color+Extension.swift */; };
 		5DA7BC8C26775C9E00A3E292 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA7BC8A26775C9E00A3E292 /* Colors.xcassets */; };
-		5DD45B8A28927F370072A9F7 /* iOSSDKStreaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DD45B8928927F300072A9F7 /* iOSSDKStreaming.framework */; };
-		5DD45B8B28927F370072A9F7 /* iOSSDKStreaming.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5DD45B8928927F300072A9F7 /* iOSSDKStreaming.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5DD575902844A4940098040B /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD5758F2844A4940098040B /* Bundle+Extension.swift */; };
 		5DD9727526775D05007919AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DD9727426775D05007919AC /* Assets.xcassets */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5DD45B8828927F300072A9F7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5DD45B8428927F300072A9F7 /* iOSSDKStreaming.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5D146FA225DE4823000852FB;
-			remoteInfo = iOSSDKStreaming;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		5D63EB1E26875CC50094DA42 /* Embed Frameworks */ = {
@@ -110,7 +98,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5DD45B8B28927F370072A9F7 /* iOSSDKStreaming.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,7 +187,6 @@
 		5DA7BC8126775A3900A3E292 /* GroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
 		5DA7BC8626775AB900A3E292 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		5DA7BC8A26775C9E00A3E292 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		5DD45B8428927F300072A9F7 /* iOSSDKStreaming.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iOSSDKStreaming.xcodeproj; path = "../../../ios-sdk-streaming/iOSSDKStreaming.xcodeproj"; sourceTree = "<group>"; };
 		5DD5758F2844A4940098040B /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		5DD9727426775D05007919AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BFFCDF6334534C1CA20E027 /* Pods-Many-to-many-call.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Many-to-many-call.debug.xcconfig"; path = "Target Support Files/Pods-Many-to-many-call/Pods-Many-to-many-call.debug.xcconfig"; sourceTree = "<group>"; };
@@ -212,7 +198,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DD45B8A28927F370072A9F7 /* iOSSDKStreaming.framework in Frameworks */,
 				5C33C99F787A2D0692DA9E17 /* Pods_Many_to_many_call.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,7 +208,6 @@
 		5D75E16727F46C6D00FB0EF3 /* Streaming */ = {
 			isa = PBXGroup;
 			children = (
-				5DD45B8428927F300072A9F7 /* iOSSDKStreaming.xcodeproj */,
 			);
 			path = Streaming;
 			sourceTree = "<group>";
@@ -480,14 +464,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		5DD45B8528927F300072A9F7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5DD45B8928927F300072A9F7 /* iOSSDKStreaming.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		79E7C46AED4C5AC224D93657 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,28 +530,12 @@
 			mainGroup = 5DA7BBDA267562A800A3E292;
 			productRefGroup = 5DA7BBE4267562A800A3E292 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 5DD45B8528927F300072A9F7 /* Products */;
-					ProjectRef = 5DD45B8428927F300072A9F7 /* iOSSDKStreaming.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				5DA7BBE2267562A800A3E292 /* Many-to-many-call */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		5DD45B8928927F300072A9F7 /* iOSSDKStreaming.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = iOSSDKStreaming.framework;
-			remoteRef = 5DD45B8828927F300072A9F7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5DA7BBE1267562A800A3E292 /* Resources */ = {
@@ -864,7 +824,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2XMPHHJW2J;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -876,6 +836,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.norgic.ios.many-to-many";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -890,7 +851,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2XMPHHJW2J;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -902,6 +863,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.norgic.ios.many-to-many";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
