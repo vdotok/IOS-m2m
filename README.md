@@ -3,15 +3,14 @@ iOSSDKStreaming-m2m Audio/Video Call
 
 ## Installation
 
+##### Development Requirements
+* Xcode 13.4.1 or latest version
+* [Click here](https://developer.apple.com/xcode/resources/) to download Xcode on your Macbook
+
 ### Requirements
 ##### System Requirements
 * MacOS as compatible with xcode version
 * 8GB of RAM memory
-   
-##### Development Requirements
-* Xcode 13.4.1 or latest version
-* [Click here](https://developer.apple.com/xcode/resources/) to download Xcode on your macbook.
-
 
 ### Installing Cocoapods
 Open **Terminal** and type command `pod --version` and hit **Enter**. 
@@ -20,6 +19,7 @@ If command is not found then you don’t have Cocoapods installed on your system
 #### Installing Cocoapods
 
 * Type the following command in **Terminal** `sudo gem install cocoapods` and hit **Enter**
+*  If you face this issue **ERROR: Failed to build gem native extension**, then run `brew install cocoapods`
 * After installation is complete, type command `pod --version` and hit **Enter** to confirm installation is successful
 
 ### Project Signup and Project ID
@@ -27,7 +27,7 @@ Register at [VdoTok HomePage](https://vdotok.com) to get **TENANT TESTING SERVER
 
 ### Code Setup
 *	On VdoTok Github repo,click on **Code** button 
-*	From HTTPS section copy **repo URL**
+*	From HTTPS section, copy **repo URL**
 *	Open **Terminal**
 *	Go to Desktop **Directory** by typing `cd Desktop` and hit **Enter**
 *	And then type `git clone https://github.com/vdotok/IOS-m2m.git` and hit **Enter**
@@ -37,7 +37,7 @@ Register at [VdoTok HomePage](https://vdotok.com) to get **TENANT TESTING SERVER
 *  	Once the process is completed it should look like following
 <img width="500" alt="Screenshot 2022-08-16 at 12 11 20 PM" src="https://user-images.githubusercontent.com/111276411/185384051-692719f2-f478-40c3-b499-4ebf4428719a.png">
 
-*    If you face issue below,execute this command in terminal `gem install --user-install ffi -- --enable-libffi-alloc` ,then run `pod intall` 
+*    If you face issue below,execute this command in terminal `gem install --user-install ffi -- --enable-libffi-alloc` ,then run `pod install` 
       
 <img width="500" alt="Screen Shot 2022-08-22 at 5 10 37 PM" src="https://user-images.githubusercontent.com/111276411/186087301-81952093-eabf-4c3a-85f9-21f34dbd9b3f.png">
 
@@ -51,6 +51,9 @@ Register at [VdoTok HomePage](https://vdotok.com) to get **TENANT TESTING SERVER
 *Please be noted that iOSSDKStreaming does not work for iOS Simulator*
 
 To run on a real device:
+
+<img width="500" alt="Screenshot 2022-08-24 at 12 39 21 PM" src="https://user-images.githubusercontent.com/111276411/186361499-0a93fc75-db9b-4eaa-bb9a-2f14556b1051.png">
+
   * Go to your **Main Target->Signing and Capabilities**
   * Select your Team and setup your bundle identifier like `com.company.appname`
   * Connect your device with MacBook
