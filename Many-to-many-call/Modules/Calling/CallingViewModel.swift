@@ -96,6 +96,9 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
         case dismissCallView
         case updateView(session: VTokBaseSession)
         
+        
+        case setRemoteView(view: UIView)
+        
         case updateHangupButton(status: Bool)
     }
     
@@ -185,6 +188,11 @@ extension CallingViewModelImpl {
 }
 
 extension CallingViewModelImpl: SessionDelegate {
+    
+    func setRemoteStreamTemp(renderer: UIView) {
+        output?(.setRemoteView(view: renderer))
+    }
+    
     func configureLocalViewFor(session: VTokBaseSession, with stream: [UserStream]) {
         guard let renderer = stream.first?.renderer else {return}
         output?(.configureLocal(view: renderer, session: session))

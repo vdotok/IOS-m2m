@@ -21,6 +21,7 @@ protocol VideoDelegate: class {
 
 class GroupCallingView: UIView {
     
+    @IBOutlet weak var remoteTempView: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var localView: UIView! {
@@ -87,6 +88,8 @@ class GroupCallingView: UIView {
     @IBAction func didTapHangup(_ sender: UIButton) {
         guard let session = session else { return }
         delegate?.didTapEnd(for: session)
+        
+        
     }
     
     func updateWith(baseSession: VTokBaseSession) {
@@ -118,6 +121,11 @@ class GroupCallingView: UIView {
         localView.addSubview(view)
        
     }
+    
+    func setRemoteView(view: UIView){
+        remoteTempView.addSubview(view)
+    }
+    
     
     func updateView(for session: VTokBaseSession) {
       

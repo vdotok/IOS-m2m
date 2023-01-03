@@ -56,6 +56,10 @@ public class CallingViewController: UIViewController {
                 self.configureView(for: session)
             case .updateHangupButton(let status):
                 self.handleHangup(status: status)
+                
+            case .setRemoteView(let view):
+                self.groupCallingView?.setRemoteView(view: view)
+                
             default:
                 break
             }
