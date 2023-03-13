@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -85,9 +86,22 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SP-Q8-9KO">
+                                                <rect key="frame" x="291" y="10" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="PYG-Y7-pKB"/>
+                                                    <constraint firstAttribute="height" constant="30" id="YkA-Vz-NqD"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="qrcode" catalog="system"/>
+                                                <connections>
+                                                    <action selector="didTapQRCode:" destination="aXa-4t-XTk" eventType="touchUpInside" id="bqu-Dk-fF3"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="0SP-Q8-9KO" secondAttribute="trailing" constant="10" id="1ik-4B-iac"/>
                                             <constraint firstItem="f3c-dC-YNR" firstAttribute="top" secondItem="XvM-eA-Nzu" secondAttribute="bottom" constant="64" id="4N3-ed-HJ5"/>
                                             <constraint firstAttribute="bottom" secondItem="Gg9-f6-WPf" secondAttribute="bottom" constant="36" id="Gl0-AC-Bfx"/>
                                             <constraint firstItem="f3c-dC-YNR" firstAttribute="leading" secondItem="NzA-NO-eik" secondAttribute="leading" constant="14" id="IMc-Gz-Yed"/>
@@ -96,6 +110,7 @@
                                             <constraint firstAttribute="trailing" secondItem="f3c-dC-YNR" secondAttribute="trailing" constant="14" id="Vb8-06-oaC"/>
                                             <constraint firstItem="Gg9-f6-WPf" firstAttribute="centerX" secondItem="NzA-NO-eik" secondAttribute="centerX" id="fNO-uM-7ql"/>
                                             <constraint firstItem="XvM-eA-Nzu" firstAttribute="top" secondItem="NzA-NO-eik" secondAttribute="top" constant="32" id="kY7-zh-lSF"/>
+                                            <constraint firstItem="0SP-Q8-9KO" firstAttribute="top" secondItem="NzA-NO-eik" secondAttribute="top" constant="10" id="oMJ-9x-dL5"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -133,6 +148,7 @@
     </scenes>
     <resources>
         <image name="Applogo" width="68" height="50.5"/>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

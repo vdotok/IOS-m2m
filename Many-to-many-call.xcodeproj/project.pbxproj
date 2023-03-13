@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49C6222C29A91A3E0095F244 /* QRScannerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6222729A91A3E0095F244 /* QRScannerBuilder.swift */; };
+		49C6222D29A91A3E0095F244 /* QRScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C6222829A91A3E0095F244 /* QRScanner.storyboard */; };
+		49C6222E29A91A3E0095F244 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6222929A91A3E0095F244 /* QRScannerViewController.swift */; };
+		49C6222F29A91A3E0095F244 /* QRScannerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6222A29A91A3E0095F244 /* QRScannerRouter.swift */; };
+		49C6223029A91A3E0095F244 /* QRScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6222B29A91A3E0095F244 /* QRScannerViewModel.swift */; };
+		49C6223229A91A610095F244 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6223129A91A610095F244 /* AuthenticationModel.swift */; };
 		5D20D782268C56CF00B78BFE /* EditGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */; };
 		5D20D785268C56E500B78BFE /* DeleteGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */; };
 		5D20D787268C570900B78BFE /* DeleteGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D786268C570900B78BFE /* DeleteGroupService.swift */; };
@@ -104,6 +110,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		49C6222729A91A3E0095F244 /* QRScannerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerBuilder.swift; sourceTree = "<group>"; };
+		49C6222829A91A3E0095F244 /* QRScanner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRScanner.storyboard; sourceTree = "<group>"; };
+		49C6222929A91A3E0095F244 /* QRScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		49C6222A29A91A3E0095F244 /* QRScannerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerRouter.swift; sourceTree = "<group>"; };
+		49C6222B29A91A3E0095F244 /* QRScannerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerViewModel.swift; sourceTree = "<group>"; };
+		49C6223129A91A610095F244 /* AuthenticationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 		5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupRequest.swift; sourceTree = "<group>"; };
 		5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupRequest.swift; sourceTree = "<group>"; };
 		5D20D786268C570900B78BFE /* DeleteGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupService.swift; sourceTree = "<group>"; };
@@ -200,6 +212,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49C6222629A91A1B0095F244 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				49C6222829A91A3E0095F244 /* QRScanner.storyboard */,
+				49C6222729A91A3E0095F244 /* QRScannerBuilder.swift */,
+				49C6222A29A91A3E0095F244 /* QRScannerRouter.swift */,
+				49C6222929A91A3E0095F244 /* QRScannerViewController.swift */,
+				49C6222B29A91A3E0095F244 /* QRScannerViewModel.swift */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
 		5D7CD5342677FC71004799EA /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +407,7 @@
 		5DA7BC212675FDCA00A3E292 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				49C6223129A91A610095F244 /* AuthenticationModel.swift */,
 				5DA7BC222675FDDC00A3E292 /* UserResponse.swift */,
 				5DA7BC672677562300A3E292 /* CheckUserNameResponse.swift */,
 				5DA7BC702677589700A3E292 /* GroupResponse.swift */,
@@ -395,6 +420,7 @@
 		5DA7BC262675FDF700A3E292 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				49C6222629A91A1B0095F244 /* QRCode */,
 				5D7CD5672678A955004799EA /* Calling */,
 				5DA2C26C2677921600B6F36C /* CreateGroup */,
 				5DA7BC412675FE6C00A3E292 /* Channel */,
@@ -524,6 +550,7 @@
 				5DA7BBF3267562AA00A3E292 /* LaunchScreen.storyboard in Resources */,
 				5D7CD5322677EC8C004799EA /* CreateGroupPopup.xib in Resources */,
 				5D7CD56F2678AE29004799EA /* GroupCallingView.xib in Resources */,
+				49C6222D29A91A3E0095F244 /* QRScanner.storyboard in Resources */,
 				5DA7BBEE267562A800A3E292 /* Main.storyboard in Resources */,
 				5D7CD5612678A950004799EA /* Calling.storyboard in Resources */,
 				5D7CD57B2678B1E2004799EA /* VideoCell.xib in Resources */,
@@ -553,6 +580,7 @@
 				5D8BC0542678DB83001F1B9B /* IncomingCall.swift in Sources */,
 				5D7CD53D2677FE34004799EA /* IndigoButton.swift in Sources */,
 				5DA7BC712677589700A3E292 /* GroupResponse.swift in Sources */,
+				49C6222E29A91A3E0095F244 /* QRScannerViewController.swift in Sources */,
 				5DA2C2742677922E00B6F36C /* CreateGroupViewController.swift in Sources */,
 				5DA7BC59267754CD00A3E292 /* ProgresHud.swift in Sources */,
 				5DA7BC682677562300A3E292 /* CheckUserNameResponse.swift in Sources */,
@@ -575,10 +603,14 @@
 				5DA7BC072675FCCD00A3E292 /* AuthenticationService.swift in Sources */,
 				5D20D785268C56E500B78BFE /* DeleteGroupRequest.swift in Sources */,
 				5D7CD5312677EC8C004799EA /* CreateGroupPopup.swift in Sources */,
+				49C6222F29A91A3E0095F244 /* QRScannerRouter.swift in Sources */,
 				5DA2C29A2677A98100B6F36C /* CreateGroupCell.swift in Sources */,
 				5DA7BC4A2675FE8300A3E292 /* ChannelBuilder.swift in Sources */,
 				5DA2C2802677A61000B6F36C /* CreateGroupService.swift in Sources */,
 				5D20D787268C570900B78BFE /* DeleteGroupService.swift in Sources */,
+				49C6223029A91A3E0095F244 /* QRScannerViewModel.swift in Sources */,
+				49C6223229A91A610095F244 /* AuthenticationModel.swift in Sources */,
+				49C6222C29A91A3E0095F244 /* QRScannerBuilder.swift in Sources */,
 				5D7CD5642678A950004799EA /* CallingBuilder.swift in Sources */,
 				5DA7BC162675FD4500A3E292 /* ApiRequest.swift in Sources */,
 				5D83A8EC2678B68000F001DE /* Constants.swift in Sources */,
