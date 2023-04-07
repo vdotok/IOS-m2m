@@ -112,8 +112,8 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
         let requestId = getRequestId()
         let baseSession = VTokBaseSessionInit(from: refID,
                                               to: participantsRefIds,
-                                              requestID: requestId,
-                                              sessionUUID: requestId,
+                                              requestId: requestId,
+                                              sessionUuid: requestId,
                                               sessionMediaType: sessionMediaType,
                                               callType: .manytomany,data: customData)
         output?(.loadView(mediaType: sessionMediaType))
