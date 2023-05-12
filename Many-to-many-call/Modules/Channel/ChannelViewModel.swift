@@ -74,7 +74,7 @@ class ChannelViewModelImpl: ChannelViewModel, ChannelViewModelInput {
     }
     
     func viewModelWillAppear() {
-        
+        fetchGroups()
     }
     
     private func configureVdotTok() {
