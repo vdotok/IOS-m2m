@@ -4,7 +4,7 @@ iOSSDKStreaming-m2m Audio/Video Call
 ## Installation
 
 ##### Development Requirements
-* Xcode 13.4.1 or latest version
+* Xcode 14.3 or latest version
 * [Click here](https://developer.apple.com/xcode/resources/) to download Xcode on your Macbook
 
 ### Requirements
