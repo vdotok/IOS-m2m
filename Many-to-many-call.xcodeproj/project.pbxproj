@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49A67DCB2A20879D004C6B29 /* iphone_11_pro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 49A67DCA2A20879D004C6B29 /* iphone_11_pro.mp3 */; };
 		5D20D782268C56CF00B78BFE /* EditGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */; };
 		5D20D785268C56E500B78BFE /* DeleteGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */; };
 		5D20D787268C570900B78BFE /* DeleteGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20D786268C570900B78BFE /* DeleteGroupService.swift */; };
@@ -104,6 +105,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		49A67DCA2A20879D004C6B29 /* iphone_11_pro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iphone_11_pro.mp3; sourceTree = "<group>"; };
 		5D20D781268C56CF00B78BFE /* EditGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupRequest.swift; sourceTree = "<group>"; };
 		5D20D784268C56E500B78BFE /* DeleteGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupRequest.swift; sourceTree = "<group>"; };
 		5D20D786268C570900B78BFE /* DeleteGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteGroupService.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 		5DA7BBE5267562A800A3E292 /* Many-to-many-call */ = {
 			isa = PBXGroup;
 			children = (
+				49A67DCA2A20879D004C6B29 /* iphone_11_pro.mp3 */,
 				5DA7BC262675FDF700A3E292 /* Modules */,
 				5DA7BC212675FDCA00A3E292 /* Model */,
 				5DA7BC182675FD5B00A3E292 /* Common */,
@@ -519,6 +522,7 @@
 				5D8BC0522678DB6E001F1B9B /* IncomingCall.xib in Resources */,
 				5DA2C2722677922E00B6F36C /* CreateGroup.storyboard in Resources */,
 				5DA7BC8C26775C9E00A3E292 /* Colors.xcassets in Resources */,
+				49A67DCB2A20879D004C6B29 /* iphone_11_pro.mp3 in Resources */,
 				5DA7BC472675FE8300A3E292 /* Channel.storyboard in Resources */,
 				5DA7BC2C2675FE0900A3E292 /* Login.storyboard in Resources */,
 				5DA7BBF3267562AA00A3E292 /* LaunchScreen.storyboard in Resources */,

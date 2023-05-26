@@ -143,6 +143,7 @@ extension ChannelViewModelImpl {
                 case 401:
                     self.output?(.failure(message: response.message))
                 case 200:
+                   
                     self.groups = response.groups ?? []
                     DispatchQueue.main.async {
                         self.output?(.reload)
