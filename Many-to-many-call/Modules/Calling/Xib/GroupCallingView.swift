@@ -42,6 +42,8 @@ class GroupCallingView: UIView {
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var hangupButton: UIButton!
     @IBOutlet weak var groupTitle: UILabel!
+    @IBOutlet weak var micButton: UIButton!
+    
     var users:[User]?
     weak var delegate: VideoDelegate?
     var session: VTokBaseSession?
@@ -140,6 +142,7 @@ class GroupCallingView: UIView {
             cameraSwitch.isHidden = true
             speakerButton.isHidden = true
             cameraButton.isEnabled = false
+            micButton.isEnabled = false
             
             setNames()
         case .ringing:
@@ -147,8 +150,22 @@ class GroupCallingView: UIView {
             speakerButton.isHidden = true
             callStatus.text = "Ringing.."
             cameraButton.isEnabled = false
+            micButton.isEnabled = false
             setNames()
         case .connected:
+            switch session.sessionMediaType {
+            case .audioCall:
+                localView.isHidden = true
+                cameraSwitch.isHidden = true
+                cameraButton.isEnabled = false
+                speakerButton.isSelected = false
+                
+            case .videoCall:
+                localView.isHidden = false
+                cameraSwitch.isHidden = false
+                cameraButton.isEnabled = true
+                speakerButton.isSelected = true
+            }
             connectedState()
         case .rejected:
             callStatus.text = "Rejected"
@@ -174,8 +191,7 @@ class GroupCallingView: UIView {
         connectedView.isHidden = false
         tryingStack.isHidden = true
         speakerButton.isHidden = false
-        cameraSwitch.isHidden = false
-        speakerButton.isHidden = false
+        micButton.isEnabled = true
         if timer == nil {
             configureTimer()
         }
@@ -193,7 +209,7 @@ class GroupCallingView: UIView {
         case .videoCall:
             localView.isHidden = false
             cameraSwitch.isHidden = false
-            cameraButton.isEnabled = false
+            cameraButton.isEnabled = true
             speakerButton.isSelected = true
         }
         
