@@ -69,6 +69,10 @@ class ChannelViewModelImpl: ChannelViewModel, ChannelViewModelInput {
     }
     
     func viewModelDidLoad() {
+        if AuthenticationConstants.TENANTSERVER.isEmpty && AuthenticationConstants.PROJECTID.isEmpty {
+        AuthenticationConstants.TENANTSERVER = UserDefaults.baseUrl
+        AuthenticationConstants.PROJECTID = UserDefaults.projectId
+        }
         configureVdotTok()
         fetchGroups()
     }
