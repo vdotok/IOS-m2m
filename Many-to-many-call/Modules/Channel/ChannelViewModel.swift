@@ -250,6 +250,8 @@ extension ChannelViewModelImpl {
 
 extension ChannelViewModelImpl: SDKConnectionDelegate {
     
+    func initReInvite(){}
+    
     func didGenerate(output: SDKOutPut) {
         switch output {
         case .disconnected(_):
