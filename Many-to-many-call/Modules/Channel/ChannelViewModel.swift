@@ -69,6 +69,10 @@ class ChannelViewModelImpl: ChannelViewModel, ChannelViewModelInput {
     }
     
     func viewModelDidLoad() {
+        if AuthenticationConstants.TENANTSERVER.isEmpty && AuthenticationConstants.PROJECTID.isEmpty {
+        AuthenticationConstants.TENANTSERVER = UserDefaults.baseUrl
+        AuthenticationConstants.PROJECTID = UserDefaults.projectId
+        }
         configureVdotTok()
         fetchGroups()
     }
@@ -245,6 +249,8 @@ extension ChannelViewModelImpl {
 }
 
 extension ChannelViewModelImpl: SDKConnectionDelegate {
+    
+    func initReInvite(){}
     
     func didGenerate(output: SDKOutPut) {
         switch output {
