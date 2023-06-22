@@ -26,6 +26,15 @@ public class SignUpViewController: UIViewController {
         viewModel.viewModelDidLoad()
     }
     
+    
+    
+    @IBAction func didTapScanner(_ sender: UIButton) {
+        let builder = QRScannerBuilder().build(with: UINavigationController())
+        builder.modalPresentationStyle = .fullScreen
+        builder.modalTransitionStyle = .crossDissolve
+        self.present(builder, animated: true, completion: nil)
+    }
+    
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.viewModelWillAppear()
