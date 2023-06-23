@@ -27,7 +27,7 @@
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan to get Vdotok project id and base url " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHV-Nu-vFN">
-                                <rect key="frame" x="24" y="183" width="366" height="28"/>
+                                <rect key="frame" x="24" y="155" width="366" height="56"/>
                                 <fontDescription key="fontDescription" name="Manrope-Medium" family="Manrope" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -38,6 +38,7 @@
                                     <constraint firstAttribute="width" constant="50" id="Irq-OP-3nt"/>
                                     <constraint firstAttribute="height" constant="50" id="Vgb-uZ-2Qf"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="arrow.backward" catalog="system"/>
                                 <connections>
@@ -56,7 +57,6 @@
                             <constraint firstItem="XcF-7s-VQe" firstAttribute="leading" secondItem="ZHV-Nu-vFN" secondAttribute="leading" constant="-24" id="hLD-Fd-EJt"/>
                             <constraint firstItem="XcF-7s-VQe" firstAttribute="trailing" secondItem="jDZ-KC-nJG" secondAttribute="trailing" id="jpB-xT-6la"/>
                             <constraint firstItem="i64-bH-mdz" firstAttribute="leading" secondItem="XcF-7s-VQe" secondAttribute="leading" constant="10" id="meR-OT-EjX"/>
-                            <constraint firstItem="ZHV-Nu-vFN" firstAttribute="top" secondItem="i64-bH-mdz" secondAttribute="bottom" constant="61" id="wy3-bm-u0D"/>
                             <constraint firstItem="i64-bH-mdz" firstAttribute="top" secondItem="XcF-7s-VQe" secondAttribute="top" constant="24" id="y54-0G-RDr"/>
                         </constraints>
                     </view>

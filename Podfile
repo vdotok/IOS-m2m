@@ -9,5 +9,5 @@ target 'Many-to-many-call' do
   pod 'KRProgressHUD'
   pod 'IQKeyboardManagerSwift'
   pod 'VdoTokStreaming', :git => 'https://github.com/vdotok/VdoTokStreaming.git'
-  
+ 
 end
