@@ -24,6 +24,12 @@ public class QRScannerViewController: UIViewController, AVCaptureMetadataOutputO
         viewModel.viewModelDidLoad()
     }
     
+    
+    
+    @IBAction func didTapBack(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.viewModelWillAppear()

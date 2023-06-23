@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,8 +35,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bar-rd-gDU">
                                         <rect key="frame" x="41.5" y="218.5" width="331" height="459.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up to your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmf-PQ-1OK">
-                                                <rect key="frame" x="56.5" y="32" width="218" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmf-PQ-1OK">
+                                                <rect key="frame" x="127" y="32" width="77.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Manrope-Medium" family="Manrope" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -96,11 +97,25 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgf-Xg-tVX">
+                                                <rect key="frame" x="276" y="33" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="5Ck-1K-zAC"/>
+                                                    <constraint firstAttribute="height" constant="30" id="M0A-yp-OuV"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="qrcode" catalog="system"/>
+                                                <connections>
+                                                    <action selector="didTapScanner:" destination="v38-UC-xb6" eventType="touchUpInside" id="4U1-Lx-C4z"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="lY6-Ad-tcw" firstAttribute="top" secondItem="Cmf-PQ-1OK" secondAttribute="bottom" constant="62" id="51L-Xf-LiJ"/>
+                                            <constraint firstItem="mgf-Xg-tVX" firstAttribute="top" secondItem="Bar-rd-gDU" secondAttribute="top" constant="33" id="KYZ-Iz-3Ze"/>
                                             <constraint firstItem="VQr-uH-3vg" firstAttribute="top" secondItem="lY6-Ad-tcw" secondAttribute="bottom" constant="44" id="Qod-Jy-fWl"/>
+                                            <constraint firstItem="mgf-Xg-tVX" firstAttribute="leading" secondItem="Cmf-PQ-1OK" secondAttribute="trailing" constant="71.5" id="RG8-LP-LOL"/>
                                             <constraint firstItem="Cmf-PQ-1OK" firstAttribute="centerX" secondItem="Bar-rd-gDU" secondAttribute="centerX" id="VxR-Wg-3s3"/>
                                             <constraint firstAttribute="trailing" secondItem="lY6-Ad-tcw" secondAttribute="trailing" constant="15" id="bg8-ka-xGz"/>
                                             <constraint firstItem="lY6-Ad-tcw" firstAttribute="leading" secondItem="Bar-rd-gDU" secondAttribute="leading" constant="15" id="j77-OF-r9N"/>
@@ -144,6 +159,7 @@
     </scenes>
     <resources>
         <image name="Applogo" width="68" height="50.5"/>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
