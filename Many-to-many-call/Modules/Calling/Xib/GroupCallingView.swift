@@ -143,7 +143,6 @@ class GroupCallingView: UIView {
             speakerButton.isHidden = true
             cameraButton.isEnabled = false
             micButton.isEnabled = false
-            
             setNames()
         case .ringing:
             cameraSwitch.isHidden = true

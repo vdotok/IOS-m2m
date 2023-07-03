@@ -275,7 +275,6 @@ extension CallingViewModelImpl {
     
     private func sessionHangup() {
         DispatchQueue.main.async {[weak self] in
-            
             self?.output?(.dismissCallView)
         }
     }

@@ -199,7 +199,7 @@ extension ChannelViewController: UITableViewDataSource, UITableViewDelegate {
         let edit = UIContextualAction(style: .normal,
                                          title: "Edit") { [weak self] (action, view, completionHandler) in
             self?.selectedGroupId = indexPath.row
-            self?.loadGroupView()
+            self?.loadGroupView(groupName:(self?.viewModel.groups[indexPath.row].groupTitle)!)
                                             completionHandler(true)
         }
         let trash = UIContextualAction(style: .destructive,
@@ -250,11 +250,12 @@ extension ChannelViewController: CreateGroupDelegate {
 }
 
 extension ChannelViewController {
-    func loadGroupView() {
+    func loadGroupView(groupName:String) {
         let vc = CreateGroupPopup()
         vc.modalPresentationStyle = .custom
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
+        vc.titleTextField.text = groupName
         vc.delegate = self
         blurView.isHidden = false
     }
@@ -262,8 +263,8 @@ extension ChannelViewController {
 
 extension ChannelViewController: PopupDelegate {
     func didTapDismiss(groupName: String?) {
-        guard let id = selectedGroupId, let name = groupName else {return}
         blurView.isHidden = true
+        guard let id = selectedGroupId, let name = groupName else {return}
         viewModel.editGroup(with: name, id: id)
     }
     

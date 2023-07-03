@@ -27,6 +27,7 @@ protocol CreateGroupViewModel: CreateGroupViewModelInput {
     var searchContacts: [User] {get set}
     func viewModelDidLoad()
     func viewModelWillAppear()
+    func getUsersReload()
     func rowsCount() -> Int
     func viewModelItem(row: Int) -> User
     func filterGroups(with text: String)
@@ -80,6 +81,10 @@ extension CreateGroupViewModelImpl {
     
     func rowsCount() -> Int {
         return isSearching ? searchContacts.count : contacts.count
+    }
+    
+    func getUsersReload() {
+        getUsers()
     }
     
     private func getUsers() {
