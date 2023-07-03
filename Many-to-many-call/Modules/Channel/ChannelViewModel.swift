@@ -69,9 +69,12 @@ class ChannelViewModelImpl: ChannelViewModel, ChannelViewModelInput {
     }
     
     func viewModelDidLoad() {
-        if AuthenticationConstants.TENANTSERVER.isEmpty && AuthenticationConstants.PROJECTID.isEmpty {
-        AuthenticationConstants.TENANTSERVER = UserDefaults.baseUrl
-        AuthenticationConstants.PROJECTID = UserDefaults.projectId
+        if (!AuthenticationConstants.TENANTSERVER.isEmpty && !AuthenticationConstants.PROJECTID.isEmpty) {
+             UserDefaults.baseUrl = AuthenticationConstants.TENANTSERVER
+             UserDefaults.projectId = AuthenticationConstants.PROJECTID
+          } else {
+            AuthenticationConstants.TENANTSERVER =  UserDefaults.baseUrl
+            AuthenticationConstants.PROJECTID = UserDefaults.projectId
         }
         configureVdotTok()
         fetchGroups()
@@ -189,6 +192,8 @@ extension ChannelViewModelImpl {
     
     func logout() {
         self.vtokSdk?.closeConnection()
+        UserDefaults.standard.removeObject(forKey: "projectId")
+        UserDefaults.standard.removeObject(forKey: "baseUrl")
     }
     
     func deleteGroup(with id: Int) {
