@@ -313,7 +313,7 @@ extension CallingViewModelImpl {
             player?.volume = 3.0
             player!.play()
         } catch let error as NSError {
-            print("helloooooerror: \(error.localizedDescription)")
+            print("error: \(error.localizedDescription)")
         }
     }
 }
