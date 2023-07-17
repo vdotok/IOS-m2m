@@ -71,9 +71,9 @@ public class ChannelViewController: UIViewController {
             //handle all your bindings here
             switch output {
             case .showProgress:
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                     ProgressHud.show(viewController: self)
-                }
+//                }
             case .hideProgress:
                 ProgressHud.hide()
             case .reload:
