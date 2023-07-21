@@ -139,7 +139,7 @@ extension ChannelViewModelImpl {
         self.output?(.showProgress)
         store.fetchGroups(with: request) { [weak self] (response) in
             guard let self = self else {return}
-            self.output?(.hideProgress)
+            output?(.hideProgress)
             switch response {
             case .success(let response):
                 switch response.status {

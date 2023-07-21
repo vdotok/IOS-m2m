@@ -75,10 +75,9 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
         case .videoView:
             makeSession(with: .videoCall)
         case .incomingCall:
+            playSound()
             guard let session = session else {return}
             guard let selectedUser =  users?.filter({$0.refID == session.to.first}).first else {return}
-           
-            playSound()
             output?(.loadIncomingCallView(session: session, user: selectedUser))
             self.session = session
             callHangupHandling()
@@ -118,7 +117,6 @@ class CallingViewModelImpl: CallingViewModel, CallingViewModelInput {
                                               callType: .manytomany,data: customData)
         output?(.loadView(mediaType: sessionMediaType))
         vtokSdk?.initiate(session: baseSession, sessionDelegate: self)
-        callHangupHandling()
     }
     
     private func getRequestId() -> String {
@@ -260,6 +258,8 @@ extension CallingViewModelImpl {
     }
     
     private func sessionReject() {
+        timer.invalidate()
+        counter = 0
         DispatchQueue.main.async {[weak self] in
             self?.output?(.dismissCallView)
             self?.stopSound()
@@ -267,6 +267,8 @@ extension CallingViewModelImpl {
     }
     
     private func sessionMissed() {
+        timer.invalidate()
+        counter = 0
         DispatchQueue.main.async {[weak self] in
             self?.output?(.dismissCallView)
             self?.stopSound()
@@ -293,7 +295,8 @@ extension CallingViewModelImpl {
 
         do {
             /// this codes for making this app ready to takeover the device audio
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord)
+            try AVAudioSession.sharedInstance().overrideOutputAudioPort(.speaker)
             try AVAudioSession.sharedInstance().setActive(true)
 
             /// change fileTypeHint according to the type of your audio file (you can omit this)
@@ -306,6 +309,8 @@ extension CallingViewModelImpl {
 
             // no need for prepareToPlay because prepareToPlay is happen automatically when calling play()
             player!.numberOfLoops = 3
+            player?.prepareToPlay()
+            player?.volume = 3.0
             player!.play()
         } catch let error as NSError {
             print("error: \(error.localizedDescription)")
